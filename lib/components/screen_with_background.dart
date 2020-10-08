@@ -31,6 +31,7 @@ class ScreenWithBackground extends StatelessWidget {
         )
         ),
         Container(
+          padding: EdgeInsets.symmetric(vertical: 10),
           height: size.height,
           width: size.width,
           child: this.child,

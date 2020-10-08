@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hci_booking_pt/screens/Welcome/get_started.dart';
 import 'package:hci_booking_pt/screens/Welcome/login.dart';
+import 'package:hci_booking_pt/theme/colors.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,8 +13,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.red),
-      home: LoginScreen(), 
+      theme: ThemeData(
+          textTheme: TextTheme(
+            bodyText1: TextStyle(),
+            bodyText2: TextStyle(),
+          ).apply(
+            bodyColor: MainColors.kLight,
+            displayColor: Colors.blue,
+            fontFamily: "ProductSans",
+          ),
+          primarySwatch: Colors.red),
+      home: LoginScreen(),
     );
   }
 }

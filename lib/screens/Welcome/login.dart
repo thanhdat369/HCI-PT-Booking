@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hci_booking_pt/components/brand_label.dart';
 import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/rounded_input.dart';
 import 'package:hci_booking_pt/components/screen_with_background.dart';
+import 'package:hci_booking_pt/screens/welcome/components/form_title.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -16,28 +18,8 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 30),
-              child: Text("KADAFI",
-                  style: const TextStyle(
-                      color: const Color(0xffffffff),
-                      fontWeight: FontWeight.w700,
-                      fontFamily: "ProductSans",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 70),
-                  textAlign: TextAlign.left),
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 50),
-              child: Text("WHO ARE YOU?",
-                  style: const TextStyle(
-                      color: const Color(0xffffffff),
-                      fontWeight: FontWeight.w400,
-                      fontFamily: "ProductSans",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 16),
-                  textAlign: TextAlign.center),
-            ),
+            BrandLabel(),
+            FormTitle(title: "Login"),
             Column(
               children: [
                 RoundedInputField(
@@ -51,36 +33,52 @@ class LoginScreen extends StatelessWidget {
                 ),
               ],
             ),
-            Container(
-              child: Text("Forget Password",
+            Column(children: [
+              Text("Forget Password ?",
                   style: const TextStyle(
-                      color: const Color(0xffffffff),
                       fontWeight: FontWeight.w400,
                       fontFamily: "ProductSans",
                       fontStyle: FontStyle.normal,
                       fontSize: 16),
                   textAlign: TextAlign.center),
-            ),
-            Container(
-              child: Text("OR",
-                  style: const TextStyle(
-                      color: const Color(0xffffffff),
-                      fontWeight: FontWeight.w400,
-                      fontFamily: "ProductSans",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 16),
-                  textAlign: TextAlign.center),
-            ),
+              Container(
+                child: Text("OR",
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontStyle: FontStyle.normal,
+                        fontSize: 16),
+                    textAlign: TextAlign.center),
+              ),
+            ]),
             Container(
               margin: EdgeInsets.symmetric(vertical: 30),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                Icon(Icons.g_translate,color: MainColors.kMain,),
-                Icon(Icons.g_translate,color: MainColors.kMain,),
-                Icon(Icons.g_translate,color: MainColors.kMain,),
-              ],)
+                  Container(
+                      margin: EdgeInsets.symmetric(horizontal: 15),
+                      child: Icon(
+                        Icons.circle_notifications,
+                        size: 70,
+                        color: Colors.blue,
+                      )),
+                  Container(
+                      margin: EdgeInsets.symmetric(horizontal: 15),
+                      child: Icon(
+                        Icons.add_a_photo,
+                        size: 70,
+                        color: MainColors.kMain,
+                      )),
+                ],
+              ),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Don't have an account ?  "),
+                Text("Register", style: TextStyle(color: MainColors.kMain)),
+              ],
+            )
           ],
         ),
       ),

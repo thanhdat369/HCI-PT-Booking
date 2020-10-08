@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hci_booking_pt/components/brand_label.dart';
 import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/screen_with_background.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
@@ -13,19 +14,9 @@ class GetStarted extends StatelessWidget {
       body: ScreenWithBackground(
         pathBackground: "asset/images/background/1.jpg",
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 30),
-              child: Text("KADAFI",
-                  style: const TextStyle(
-                      color: const Color(0xffffffff),
-                      fontWeight: FontWeight.w700,
-                      fontFamily: "ProductSans",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 70),
-                  textAlign: TextAlign.left),
-            ),
+            BrandLabel(),
             Container(
               margin: EdgeInsets.symmetric(vertical: 50),
               child: Text("WHO ARE YOU?",
