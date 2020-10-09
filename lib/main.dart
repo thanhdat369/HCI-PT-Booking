@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/screens/Welcome/login.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
+import 'screens/Welcome/get_started.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -23,7 +25,9 @@ class MyApp extends StatelessWidget {
             fontFamily: "ProductSans",
           ),
           primarySwatch: Colors.red),
-      home: LoginScreen(),
+      home: 
+      //GetStarted(),
+      LoginScreen(),
     );
   }
 }
