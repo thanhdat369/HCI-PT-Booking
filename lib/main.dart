@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/screens/user_screen/profile.dart';
+import 'package:hci_booking_pt/screens/user_screen/user_screen_back_button.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
             fontFamily: "ProductSans",
           ),
           primarySwatch: Colors.red),
-      home: Profile(),
+      home: UserScreenBackButton(child: Text("Hello"),title: "Hello",),
     );
   }
 }
