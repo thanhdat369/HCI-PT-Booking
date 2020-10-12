@@ -4,11 +4,9 @@ import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/rounded_input.dart';
 import 'package:hci_booking_pt/components/rounded_password.dart';
 import 'package:hci_booking_pt/components/screen_with_background.dart';
+import 'package:hci_booking_pt/screens/Welcome/components/radio_button.dart';
 import 'package:hci_booking_pt/screens/welcome/components/form_title.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
-
-
-
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({Key key}) : super(key: key);
@@ -50,11 +48,7 @@ class RegisterScreen extends StatelessWidget {
                 ),
               ],
             ),
-
-
-
             Divider(),           
-
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

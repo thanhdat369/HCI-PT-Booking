@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hci_booking_pt/screens/Welcome/components/radio_button.dart';
 import 'package:hci_booking_pt/screens/Welcome/login.dart';
+import 'package:hci_booking_pt/screens/Welcome/register.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 void main() {
@@ -21,9 +23,13 @@ class MyApp extends StatelessWidget {
             bodyColor: MainColors.kLight,
             displayColor: Colors.blue,
             fontFamily: "ProductSans",
+
           ),
           primarySwatch: Colors.red),
-      home: LoginScreen(),
+      home: 
+      //LoginScreen(),
+      //RegisterScreen(),
+      Radio_Button(),
     );
   }
 }
