@@ -3,7 +3,8 @@ import 'package:hci_booking_pt/theme/colors.dart';
 
 class UserScreen extends StatefulWidget {
   Widget child;
-  UserScreen({Key key,this.child}) : super(key: key);
+  String title;
+  UserScreen({Key key,this.child,this.title}) : super(key: key);
   @override
   _UserScreenState createState() => _UserScreenState();
 }
@@ -16,7 +17,7 @@ class _UserScreenState extends State<UserScreen> {
       appBar: AppBar(
         backgroundColor: MainColors.kDark,
         // leading: BackButton(color: MainColors.kLight),
-        title: Text("Home"),
+        title: Text(this.widget.title),
         centerTitle: true,
       ),
       backgroundColor: MainColors.kDark,
@@ -31,13 +32,13 @@ class _UserScreenState extends State<UserScreen> {
             type: BottomNavigationBarType.fixed,
             backgroundColor: MainColors.kDark,
             items: [
-              BottomNavigationBarItem(label: "Hello", icon: Icon(Icons.home)),
+              BottomNavigationBarItem(label: "Home", icon: Icon(Icons.home)),
               BottomNavigationBarItem(
-                  label: "Hello", icon: Icon(Icons.supervised_user_circle)),
+                  label: "Search", icon: Icon(Icons.search)),
               BottomNavigationBarItem(
                   label: "Hello", icon: Icon(Icons.fitness_center)),
               BottomNavigationBarItem(
-                  label: "Hello", icon: Icon(Icons.account_box)),
+                  label: "Account", icon: Icon(Icons.account_circle_outlined)),
             ],
           )),
     );
