@@ -47,16 +47,16 @@ class CircleAvtAccount extends StatelessWidget {
         ],
       ),
       Container(
-        margin: EdgeInsets.all(10),
+          margin: EdgeInsets.all(10),
           child: Text(
-        this.name,
-        style: TextStyle(
-          fontStyle: FontStyle.normal,
-          fontSize: 30,
-          fontWeight: FontWeight.w700,
-          color: MainColors.kSoftLight,
-        ),
-      )),
+            this.name,
+            style: TextStyle(
+              fontStyle: FontStyle.normal,
+              fontSize: 30,
+              fontWeight: FontWeight.w700,
+              color: MainColors.kSoftLight,
+            ),
+          )),
     ]);
   }
 }
@@ -72,42 +72,33 @@ class Profile extends StatelessWidget {
     );
   }
 
+  Widget myExpand(Widget a) {
+    return null;
+  }
+
   Widget profileView() {
     return Column(
       children: <Widget>[
-        Expanded(
-            child: Container(
-              padding: EdgeInsets.all(20),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30), topRight: Radius.circular(30)),
-              color: const Color(0xff1d1d1d)),
-          child: Column(
-            children: <Widget>[
-              CircleAvtAccount(),
-              
-              MyIcon(
-                icon: Icons.today_sharp,
-                title: "Dat Le",
-              ),
-              MyIcon(
-                icon: Icons.today_sharp,
-                title: "Dat Le",
-              ),
-              MyIcon(
-                icon: Icons.today_sharp,
-                title: "Dat Le",
-              ),
-              MyIcon(
-                icon: Icons.today_sharp,
-                title: "Dat Le",
-              ),
-              RoundedButton(
-                text: "Log out",
-              )
-            ],
-          ),
-        ))
+        CircleAvtAccount(),
+        MyIcon(
+          icon: Icons.today_sharp,
+          title: "Dat Le",
+        ),
+        MyIcon(
+          icon: Icons.today_sharp,
+          title: "Dat Le",
+        ),
+        MyIcon(
+          icon: Icons.today_sharp,
+          title: "Dat Le",
+        ),
+        MyIcon(
+          icon: Icons.today_sharp,
+          title: "Dat Le",
+        ),
+        RoundedButton(
+          text: "Log out",
+        )
       ],
     );
   }
@@ -121,7 +112,7 @@ class MyIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(0,10,0,10),
+      margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
       alignment: Alignment.center,
       child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         Container(

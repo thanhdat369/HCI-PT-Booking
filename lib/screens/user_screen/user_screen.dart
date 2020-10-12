@@ -4,7 +4,7 @@ import 'package:hci_booking_pt/theme/colors.dart';
 class UserScreen extends StatefulWidget {
   Widget child;
   String title;
-  UserScreen({Key key,this.child,this.title}) : super(key: key);
+  UserScreen({Key key, this.child, this.title}) : super(key: key);
   @override
   _UserScreenState createState() => _UserScreenState();
 }
@@ -21,12 +21,20 @@ class _UserScreenState extends State<UserScreen> {
         centerTitle: true,
       ),
       backgroundColor: MainColors.kDark,
-      body: this.widget.child,
+      body: Container(
+        padding: EdgeInsets.all(20),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+            color: MainColors.kSoftDark
+            ),
+        child: this.widget.child,
+      ),
       bottomNavigationBar: Container(
           decoration: BoxDecoration(
               border:
                   Border(top: BorderSide(color: MainColors.kMain, width: 3))),
-                  padding: EdgeInsets.only(top:10),
+          padding: EdgeInsets.only(top: 10),
           child: BottomNavigationBar(
             unselectedItemColor: MainColors.kLight,
             type: BottomNavigationBarType.fixed,
