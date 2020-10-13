@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hci_booking_pt/screens/user_screen/components/user_screen_back_button.dart';
 import 'package:hci_booking_pt/screens/user_screen/profile.dart';
-import 'package:hci_booking_pt/screens/user_screen/user_screen_back_button.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    var materialApp = MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           textTheme: TextTheme(
@@ -25,7 +25,9 @@ class MyApp extends StatelessWidget {
             fontFamily: "ProductSans",
           ),
           primarySwatch: Colors.red),
-      home: UserScreenBackButton(child: Text("Hello"),title: "Hello",),
+      // home: UserScreenBackButton(child: Text("Hello"),title: "Hello",),
+      home: Profile(),
     );
+    return materialApp;
   }
 }
