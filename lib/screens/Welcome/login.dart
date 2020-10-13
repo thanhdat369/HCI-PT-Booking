@@ -9,7 +9,6 @@ import 'package:hci_booking_pt/theme/colors.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
