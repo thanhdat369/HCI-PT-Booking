@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ScreenWithBackground extends StatelessWidget {
   final String pathBackground;
   final Widget child;
-  
+
   const ScreenWithBackground({
     Key key,
     @required this.pathBackground,
@@ -36,4 +36,5 @@ class ScreenWithBackground extends StatelessWidget {
       ],
     );
   }
+
 }

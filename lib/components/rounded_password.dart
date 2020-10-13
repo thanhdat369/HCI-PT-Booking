@@ -5,13 +5,14 @@ class RoundedPasswordField extends StatelessWidget {
   final String hintText;
   final IconData icon;
   final ValueChanged<String> onChanged;
-  const RoundedPasswordField({
-    Key key,
-    this.hintText,
-    this.icon = Icons.lock,
-    this.onChanged,
-  }) : super(key: key);
-
+  final bool ishaveVisibleButton;
+  const RoundedPasswordField(
+      {Key key,
+      this.hintText,
+      this.icon = Icons.lock,
+      this.onChanged,
+      this.ishaveVisibleButton = true})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -35,13 +36,14 @@ class RoundedPasswordField extends StatelessWidget {
           ),
           hintText: hintText,
           border: InputBorder.none,
-          suffixIcon: Icon(
-            Icons.visibility,
-            color: MainColors.kMain,
-          ),
-        ), 
+          suffixIcon: ishaveVisibleButton
+              ? Icon(
+                  Icons.visibility,
+                  color: MainColors.kMain,
+                )
+              : null,
+        ),
       ),
-
     );
   }
 }
