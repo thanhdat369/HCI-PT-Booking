@@ -13,7 +13,6 @@ class RoundedPasswordField extends StatelessWidget {
       this.onChanged,
       this.ishaveVisibleButton = true})
       : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
