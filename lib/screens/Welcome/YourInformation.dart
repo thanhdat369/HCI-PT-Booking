@@ -21,7 +21,7 @@ class RegisterScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             BrandLabel(),
-            FormTitle(title: "REGISTER"),
+            FormTitle(title: "YOUR INFORMATION"),
             Column(
               children: [
                 RoundedInputField(
