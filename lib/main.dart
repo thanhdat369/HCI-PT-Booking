@@ -31,8 +31,8 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.red),
       home: 
       //LoginScreen(),
-      //RegisterScreen(),
-      Radio_Button(),
+      RegisterScreen(),
+      // Radio_Button(),
     );
   }
 }
