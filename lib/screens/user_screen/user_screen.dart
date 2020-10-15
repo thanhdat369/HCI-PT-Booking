@@ -5,13 +5,12 @@ import 'package:hci_booking_pt/screens/user_screen/profile.dart';
 import 'package:hci_booking_pt/screens/user_screen/user_home.dart';
 import 'package:hci_booking_pt/screens/user_screen/user_notification.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
+
 //Supported class
-class UserScreenItemDTO
-{
+class UserScreenItemDTO {
   String title;
   Widget screen;
-  UserScreenItemDTO(this.title,this.screen);
-
+  UserScreenItemDTO(this.title, this.screen);
 }
 
 class UserScreen extends StatefulWidget {
@@ -20,14 +19,13 @@ class UserScreen extends StatefulWidget {
   _UserScreenState createState() => _UserScreenState();
 }
 
-
 class _UserScreenState extends State<UserScreen> {
   int _currentindex = 0;
   final _tabs = [
-    UserScreenItemDTO("Home",UserHome()),
-    UserScreenItemDTO("Search",FindPT()),
-    UserScreenItemDTO("Notification",UserNotification()),
-    UserScreenItemDTO("Profile",Profile()),
+    UserScreenItemDTO("Home", UserHome()),
+    UserScreenItemDTO("Search", FindPT()),
+    UserScreenItemDTO("Notification", UserNotification()),
+    UserScreenItemDTO("Profile", Profile()),
   ];
   @override
   Widget build(BuildContext context) {
@@ -48,9 +46,9 @@ class _UserScreenState extends State<UserScreen> {
           padding: EdgeInsets.only(top: 10),
           child: BottomNavigationBar(
             currentIndex: _currentindex,
-            onTap: (index){
+            onTap: (index) {
               setState(() {
-                 _currentindex = index;
+                _currentindex = index;
               });
             },
             unselectedItemColor: MainColors.kLight,
