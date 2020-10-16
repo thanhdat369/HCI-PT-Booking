@@ -5,7 +5,6 @@ import 'package:hci_booking_pt/screens/Welcome/register.dart';
 import 'package:hci_booking_pt/screens/user_screen/profile.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
-import 'screens/Welcome/get_started.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    var materialApp = MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           textTheme: TextTheme(
@@ -31,8 +30,9 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.red),
       home: 
       //LoginScreen(),
-      RegisterScreen(),
-      // Radio_Button(),
+      //RegisterScreen(),
+      Radio_Button(),
     );
+    return materialApp;
   }
 }
