@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hci_booking_pt/screens/user_screen/components/user_screen_back_button.dart';
 import 'package:hci_booking_pt/screens/Welcome/components/radio_button.dart';
 import 'package:hci_booking_pt/screens/Welcome/login.dart';
 import 'package:hci_booking_pt/screens/Welcome/register.dart';
