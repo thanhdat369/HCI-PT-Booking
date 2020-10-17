@@ -70,6 +70,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             },
           ),
           Text("FeMale"),
+          Checkbox(
             value: checkBoxValue,
             checkColor: MainColors.kMain,  // color of tick Mark
           activeColor: MainColors.kSoftLight,
