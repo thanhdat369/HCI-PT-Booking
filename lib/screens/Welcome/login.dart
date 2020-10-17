@@ -59,7 +59,7 @@ class LoginScreen extends StatelessWidget {
                   Container(
                       margin: EdgeInsets.symmetric(horizontal: 15),
                       child: Icon(
-                        Icons.circle_notifications,
+                        Icons.group,
                         size: 70,
                         color: Colors.blue,
                       )),
