@@ -66,9 +66,6 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  profileView();
-  }
-  Widget profileView() {
     return Column(
       children: <Widget>[
         CircleAvtAccount(),
@@ -90,6 +87,9 @@ class Profile extends StatelessWidget {
         ),
         RoundedButton(
           text: "Log out",
+          press: () {
+            Navigator.pop(context);
+          },
         )
       ],
     );

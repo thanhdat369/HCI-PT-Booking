@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hci_booking_pt/screens/welcome/login.dart';
 import 'package:hci_booking_pt/screens/welcome/register.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
             fontFamily: "ProductSans",
           ),
           primarySwatch: Colors.red),
-      home: RegisterScreen(),
+      home: LoginScreen(),
     );
     return materialApp;
   }
