@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-
-
+import 'package:hci_booking_pt/screens/user_screen/components/user_screen_back_button.dart';
 
 class ChatScreen extends StatefulWidget {
   @override
@@ -13,37 +11,17 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   final messageTextController = TextEditingController();
 
-
   String messageText;
   @override
   void initState() {
     super.initState();
-
   }
-
-
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        leading: null,
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.close),
-              onPressed: () async {
-
-                Navigator.pop(context);
-              }),
-        ],
-        title: Text('MICHAEL JORDAN'),
-        backgroundColor: Colors.black26,
-      ),
-      body: SafeArea(
-
+    return UserScreenBackButton(
+      title: "Michel Jordan",
+      child: SafeArea(
         child: Column(
-
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
@@ -59,18 +37,14 @@ class _ChatScreenState extends State<ChatScreen> {
                           filled: true,
                           fillColor: Colors.black26,
                           border: OutlineInputBorder(),
-                          labelStyle: TextStyle(
-                              color: Colors.red,
-                              fontSize: 24.0
-                          ),
+                          labelStyle:
+                              TextStyle(color: Colors.red, fontSize: 24.0),
                           hintText: 'Say something...',
-                        hintStyle: TextStyle(fontSize: 20.0, color: Colors.white)
-
-                      ),
+                          hintStyle:
+                              TextStyle(fontSize: 20.0, color: Colors.white)),
                     ),
                   ),
                   FlatButton(
-
                     onPressed: () {
                       messageTextController.clear();
                       // _cloudStore.collection("messages").add({
@@ -98,12 +72,9 @@ class MessagesStream extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-
-          final messages =[1];
-
+          final messages = [1];
 
           List<MessageBubble> bubbles = [
             MessageBubble(sender: 'Hieu dep trai', text: 'Hey Mi', isMe: true),
@@ -112,20 +83,19 @@ class MessagesStream extends StatelessWidget {
 
           List<MessageBubble> messageWidgets = messages.map((message) {
             final sender = bubbles[0].sender.toString();
-            if(bubbles[0].isMe == true) {
+            if (bubbles[0].isMe == true) {
               return MessageBubble(
                 sender: bubbles[0].sender.toString(),
                 text: bubbles[0].text,
                 isMe: bubbles[0].isMe,
               );
-            }else{
+            } else {
               return MessageBubble(
                 sender: bubbles[1].sender.toString(),
                 text: bubbles[1].text,
                 isMe: bubbles[1].isMe,
               );
             }
-
           }).toList();
           return Expanded(
             child: ListView(
@@ -153,10 +123,9 @@ class MessageBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(10.0),
-
       child: Column(
         crossAxisAlignment:
-        isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+            isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: <Widget>[
           Text(
             "$sender",
@@ -165,15 +134,15 @@ class MessageBubble extends StatelessWidget {
           Material(
             borderRadius: isMe
                 ? BorderRadius.only(
-              topLeft: Radius.circular(30),
-              bottomLeft: Radius.circular(30),
-              bottomRight: Radius.circular(30),
-            )
+                    topLeft: Radius.circular(30),
+                    bottomLeft: Radius.circular(30),
+                    bottomRight: Radius.circular(30),
+                  )
                 : BorderRadius.only(
-              topRight: Radius.circular(30),
-              bottomLeft: Radius.circular(30),
-              bottomRight: Radius.circular(30),
-            ),
+                    topRight: Radius.circular(30),
+                    bottomLeft: Radius.circular(30),
+                    bottomRight: Radius.circular(30),
+                  ),
             elevation: 5,
             color: isMe ? Colors.lightBlueAccent : Colors.white,
             child: Padding(

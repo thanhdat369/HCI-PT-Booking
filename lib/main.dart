@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           ),
           primarySwatch: Colors.red),
       home: 
-      ChattingScreen(),
+      ChatScreen(),
     );
     return materialApp;
   }
