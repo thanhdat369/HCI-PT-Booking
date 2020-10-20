@@ -22,7 +22,7 @@ class UserScreen extends StatefulWidget {
 
 
 class _UserScreenState extends State<UserScreen> {
-  int _currentindex = 0;
+  int _currentindex = 2;
   final _tabs = [
     UserScreenItemDTO("Home",UserHome()),
     UserScreenItemDTO("Search",FindPT()),

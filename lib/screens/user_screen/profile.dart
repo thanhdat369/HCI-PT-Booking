@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:hci_booking_pt/components/my_circleavt.dart';
 import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/screens/user_screen/user_screen.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
@@ -20,14 +21,9 @@ class CircleAvtAccount extends StatelessWidget {
     return Column(children: [
       Stack(
         children: [
-          CircleAvatar(
+          MyCircleAvatar(
             radius: this.radius,
-            child: ClipOval(
-              child: Image.asset(
-                this.imagePath,
-                fit: BoxFit.cover,
-              ),
-            ),
+            imgPath: this.imagePath,
           ),
           // Change avt
           Positioned(
