@@ -72,19 +72,19 @@ class Profile extends StatelessWidget {
       children: <Widget>[
         CircleAvtAccount(),
         MyIcon(
-          icon: Icons.today_sharp,
+          icon: Icons.lock,
           title: "Dat Le",
         ),
         MyIcon(
-          icon: Icons.today_sharp,
+          icon: Icons.lock,
           title: "Dat Le",
         ),
         MyIcon(
-          icon: Icons.today_sharp,
+          icon: Icons.lock,
           title: "Dat Le",
         ),
         MyIcon(
-          icon: Icons.today_sharp,
+          icon: Icons.lock,
           title: "Dat Le",
         ),
         RoundedButton(

@@ -16,6 +16,7 @@ class _ChatScreenState extends State<ChatScreen> {
   void initState() {
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return UserScreenBackButton(
@@ -25,23 +26,27 @@ class _ChatScreenState extends State<ChatScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+
+
+
+
             MessagesStream(),
+
             Container(
-              decoration: kMessageContainerDecoration,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Expanded(
                     child: TextField(
                       decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.black26,
-                          border: OutlineInputBorder(),
-                          labelStyle:
-                              TextStyle(color: Colors.red, fontSize: 24.0),
-                          hintText: 'Say something...',
-                          hintStyle:
-                              TextStyle(fontSize: 20.0, color: Colors.white)),
+                        fillColor: Colors.red,
+                        hintText: "Say something...",
+                        hintStyle: TextStyle(color: Colors.white70),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Colors.red, width: 2.0),
+                          borderRadius: BorderRadius.circular(25.0),
+                        )
+                      ),
                     ),
                   ),
                   FlatButton(
@@ -53,9 +58,20 @@ class _ChatScreenState extends State<ChatScreen> {
                       //   'dateCreated': FieldValue.serverTimestamp()
                       // });
                     },
-                    child: Text(
-                      'SEND',
+                    child: RichText(text: TextSpan(
                       style: kSendButtonTextStyle,
+                      children: [
+                        WidgetSpan(
+                          child: Padding(
+
+                            padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                            child: Icon(Icons.arrow_forward,color: Colors.red, size: 40),
+                          ),
+                        ),
+                      ]
+                    ),
+                      // 'SEND',
+                      //
                     ),
                   ),
                 ],
@@ -71,36 +87,26 @@ class _ChatScreenState extends State<ChatScreen> {
 class MessagesStream extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<QuerySnapshot>(
-      builder: (context, snapshot) {
-        if (!snapshot.hasData) {
-          final messages = [1];
+    DateTime today = DateTime.now();
 
+    return StreamBuilder<QuerySnapshot>(
+    builder: (context, snapshot) {
+        if (!snapshot.hasData) {
           List<MessageBubble> bubbles = [
-            MessageBubble(sender: 'Hieu dep trai', text: 'Hey Mi', isMe: true),
-            MessageBubble(sender: 'Not me', text: 'What\'s new?', isMe: false)
+
+            MessageBubble(sender: 'Not me', text: "Not really. It is pretty easy. The computer does all the calculations for you.", isMe: true),
+            MessageBubble(sender: 'Hieu dep trai', text: 'Nice too meet u too. Do u like your job?', isMe: false),
+            MessageBubble(sender: 'Not me', text: "Hello. Nice to meet u", isMe: true),
           ];
 
-          List<MessageBubble> messageWidgets = messages.map((message) {
-            final sender = bubbles[0].sender.toString();
-            if (bubbles[0].isMe == true) {
-              return MessageBubble(
-                sender: bubbles[0].sender.toString(),
-                text: bubbles[0].text,
-                isMe: bubbles[0].isMe,
-              );
-            } else {
-              return MessageBubble(
-                sender: bubbles[1].sender.toString(),
-                text: bubbles[1].text,
-                isMe: bubbles[1].isMe,
-              );
-            }
-          }).toList();
+          bubbles.forEach((bubble) {
+            print(bubble);
+          });
+
           return Expanded(
             child: ListView(
               reverse: true,
-              children: messageWidgets,
+              children: bubbles,
             ),
           );
         }
@@ -117,20 +123,28 @@ class MessageBubble extends StatelessWidget {
   final String sender;
   final String text;
   final bool isMe;
-  MessageBubble({this.sender, this.text, this.isMe});
+  DateTime date;
+
+
+  MessageBubble({this.sender, this.text, this.isMe, this.date});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(10.0),
+
       child: Column(
         crossAxisAlignment:
             isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+
         children: <Widget>[
-          Text(
-            "$sender",
-            style: TextStyle(fontSize: 12, color: Colors.black54),
-          ),
+          Container(
+              alignment: Alignment.center,
+              child: Text(
+                "Monday, 10:40 A.M",
+                style: TextStyle(
+                  color: Colors.red,),
+              ) ),
           Material(
             borderRadius: isMe
                 ? BorderRadius.only(
@@ -144,16 +158,17 @@ class MessageBubble extends StatelessWidget {
                     bottomRight: Radius.circular(30),
                   ),
             elevation: 5,
-            color: isMe ? Colors.lightBlueAccent : Colors.white,
+            color: isMe ? Colors.red : Colors.white,
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               child: Text(
                 "$text",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: isMe ? Colors.white : Colors.red,
                   fontSize: 15,
                 ),
               ),
+
             ),
           ),
         ],
