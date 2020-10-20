@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hci_booking_pt/components/brand_label.dart';
 import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/rounded_input.dart';
-import 'package:hci_booking_pt/components/rounded_password.dart';
 import 'package:hci_booking_pt/components/screen_with_background.dart';
 import 'package:hci_booking_pt/screens/welcome/components/form_title.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,9 +26,8 @@ class LoginScreen extends StatelessWidget {
                 RoundedInputField(
                   hintText: "Username",
                 ),
-                RoundedPasswordField(
+                RoundedInputField(
                   hintText: "Password",
-                  icon: Icons.lock,
                 ),
                 RoundedButton(
                   text: "Login",
@@ -58,17 +58,17 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   Container(
                       margin: EdgeInsets.symmetric(horizontal: 15),
-                      child: Icon(
-                        Icons.group,
-                        size: 70,
+                      child: FaIcon(
+                        FontAwesomeIcons.facebook,
                         color: Colors.blue,
+                        size: 70,
                       )),
                   Container(
                       margin: EdgeInsets.symmetric(horizontal: 15),
-                      child: Icon(
-                        Icons.add_a_photo,
+                      child: FaIcon(
+                        FontAwesomeIcons.google,
+                        color: Colors.red,
                         size: 70,
-                        color: MainColors.kMain,
                       )),
                 ],
               ),
