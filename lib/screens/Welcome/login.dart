@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hci_booking_pt/components/brand_label.dart';
 import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/rounded_input.dart';
+import 'package:hci_booking_pt/components/rounded_password.dart';
 import 'package:hci_booking_pt/components/screen_with_background.dart';
 import 'package:hci_booking_pt/screens/welcome/components/form_title.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
@@ -17,7 +18,8 @@ class LoginScreen extends StatelessWidget {
       body: ScreenWithBackground(
         pathBackground: "asset/images/background/1.jpg",
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             BrandLabel(),
             FormTitle(title: "Login"),
@@ -26,7 +28,8 @@ class LoginScreen extends StatelessWidget {
                 RoundedInputField(
                   hintText: "Username",
                 ),
-                RoundedInputField(
+                RoundedPasswordField(
+                  ishaveVisibleButton: true,
                   hintText: "Password",
                 ),
                 RoundedButton(
