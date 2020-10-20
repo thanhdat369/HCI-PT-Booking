@@ -58,7 +58,7 @@ class CheckOut extends StatelessWidget {
             ),
             textAlign: TextAlign.left),
         Container(
-          margin: EdgeInsets.only(bottom: 50, top: 15,),
+          margin: EdgeInsets.only(bottom: 45, top: 15,),
             child: Column(
           children: [
             a("Personal Trainer Fee", "\$ 27"),
@@ -97,7 +97,7 @@ class Info_CheckOut extends StatelessWidget {
                     ),
         ),
         Container(
-          padding: EdgeInsets.only(left: 18, right: 10, top: 32, bottom: 7),
+          padding: EdgeInsets.only(left: 10, right: 10, top: 32, bottom: 7),
           child: Row(
             children: [
               Container(
@@ -111,7 +111,7 @@ class Info_CheckOut extends StatelessWidget {
                 ),
               )),
               Container(
-                margin: EdgeInsets.only(left: 30),
+                margin: EdgeInsets.only(left: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -122,7 +122,7 @@ class Info_CheckOut extends StatelessWidget {
                           fontWeight: FontWeight.w700,
                           fontFamily: "NotoSans",
                           fontStyle: FontStyle.normal,
-                          fontSize: 25),
+                          fontSize: 20),
                     ),
                     Text(
                       "October  30,  2020",

@@ -5,6 +5,7 @@ import 'package:hci_booking_pt/screens/user_screen/profile.dart';
 import 'package:hci_booking_pt/screens/user_screen/user_home.dart';
 import 'package:hci_booking_pt/screens/user_screen/user_notification.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 //Supported class
 class UserScreenItemDTO {
@@ -22,10 +23,10 @@ class UserScreen extends StatefulWidget {
 class _UserScreenState extends State<UserScreen> {
   int _currentindex = 0;
   final _tabs = [
-    UserScreenItemDTO("Home", UserHome()),
-    UserScreenItemDTO("Search", FindPT()),
-    UserScreenItemDTO("Notification", UserNotification()),
-    UserScreenItemDTO("Profile", Profile()),
+    UserScreenItemDTO("TRAINING", UserHome()),
+    UserScreenItemDTO("FIND YOUR TRAINER", FindPT()),
+    UserScreenItemDTO("NOTIFICATION", UserNotification()),
+    UserScreenItemDTO("PROFILE", Profile()),
   ];
   @override
   Widget build(BuildContext context) {
@@ -55,13 +56,19 @@ class _UserScreenState extends State<UserScreen> {
             type: BottomNavigationBarType.fixed,
             backgroundColor: MainColors.kDark,
             items: [
-              BottomNavigationBarItem(label: "Home", icon: Icon(Icons.home)),
               BottomNavigationBarItem(
-                  label: "Search", icon: Icon(Icons.search)),
+                label: "TRAINING",
+                icon: SvgPicture.asset('asset/images/user_screen/home.svg',
+                    color: _currentindex == 0
+                        ? MainColors.kMain
+                        : MainColors.kLight),
+              ),
               BottomNavigationBarItem(
-                  label: "Notification", icon: Icon(Icons.notifications)),
+                  label: "FIND TRAINER", icon: Icon(Icons.search)),
               BottomNavigationBarItem(
-                  label: "Account", icon: Icon(Icons.account_circle_outlined)),
+                  label: "NOTIFICATION", icon: Icon(Icons.notifications)),
+              BottomNavigationBarItem(
+                  label: "ACCOUNT", icon: Icon(Icons.account_circle_outlined)),
             ],
           )),
     );
