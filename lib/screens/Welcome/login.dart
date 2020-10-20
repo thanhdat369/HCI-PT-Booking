@@ -14,6 +14,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset:false,
       backgroundColor: MainColors.kDark,
       body: ScreenWithBackground(
         pathBackground: "asset/images/background/1.jpg",
