@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hci_booking_pt/screens/user_screen/chatting_screen.dart';
 import 'package:hci_booking_pt/screens/welcome/register.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
