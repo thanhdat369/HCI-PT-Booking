@@ -17,7 +17,7 @@ class RoundedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      color: this.color ,
+      color: this.color,
       margin: EdgeInsets.symmetric(vertical: 5),
       width: size.width * 0.8,
       height:size.height * 0.1,

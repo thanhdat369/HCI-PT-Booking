@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/components/my_circleavt.dart';
-import 'package:hci_booking_pt/screens/user_screen/profile.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 class UserNotification extends StatelessWidget {
@@ -12,18 +11,21 @@ class UserNotification extends StatelessWidget {
       Padding(
         padding: const EdgeInsets.only(bottom: 10),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween, 
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Text("New"),
-            Text("Mark all read",style: TextStyle(color: MainColors.kMain),),
+            Text(
+              "Mark all read",
+              style: TextStyle(color: MainColors.kMain),
+            ),
           ],
         ),
       ),
       Expanded(
         child: ListView(
           children: [
-            NotificationItem(),
-            NotificationItem(),
+            NotificationItem(isRead: false),
+            NotificationItem(isRead: false),
             NotificationItem(),
             NotificationItem(),
             NotificationItem(),
@@ -36,7 +38,8 @@ class UserNotification extends StatelessWidget {
 }
 
 class NotificationItem extends StatelessWidget {
-  const NotificationItem({Key key}) : super(key: key);
+  bool isRead;
+  NotificationItem({Key key, this.isRead = true}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +65,10 @@ class NotificationItem extends StatelessWidget {
                       child: Text(
                         "Michel Jordan",
                         style: TextStyle(
-                            fontWeight: FontWeight.w700, fontSize: 18),
+                            color:
+                                isRead ? MainColors.kLight : MainColors.kMain,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 18),
                       ),
                     ), //title
                     Container(
@@ -77,6 +83,13 @@ class NotificationItem extends StatelessWidget {
                             overflow: TextOverflow.clip)), //description
                   ],
                 ),
+              ),
+              Text(
+                "1 m",
+                style: TextStyle(
+                    color: isRead ? MainColors.kLight : MainColors.kMain,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 12),
               ),
             ],
           ),

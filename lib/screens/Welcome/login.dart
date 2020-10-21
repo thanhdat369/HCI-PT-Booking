@@ -7,6 +7,7 @@ import 'package:hci_booking_pt/components/rounded_password.dart';
 import 'package:hci_booking_pt/components/screen_with_background.dart';
 import 'package:hci_booking_pt/screens/user_screen/user_screen.dart';
 import 'package:hci_booking_pt/screens/welcome/components/form_title.dart';
+import 'package:hci_booking_pt/screens/welcome/register.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -17,12 +18,12 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  @override
   TextEditingController userController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset:false,
+      resizeToAvoidBottomInset: false,
       backgroundColor: MainColors.kDark,
       body: ScreenWithBackground(
         pathBackground: "asset/images/background/1.jpg",
@@ -92,7 +93,16 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text("Don't have an account ?  "),
-                Text("Register", style: TextStyle(color: MainColors.kMain)),
+                GestureDetector(
+                  child: Text("Register",
+                      style: TextStyle(color: MainColors.kMain)),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RegisterScreen()));
+                  },
+                ),
               ],
             )
           ],
@@ -101,10 +111,16 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  void _clear_text() {
+    userController.clear();
+    passwordController.clear();
+  }
+
   void _login() {
     setState(() {
       if (userController.text == "user" &&
           passwordController.text == "123456") {
+        _clear_text();
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => UserScreen()));
       }

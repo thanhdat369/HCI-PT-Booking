@@ -29,6 +29,20 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.red),
       home: LoginScreen(),
     );
-    return materialApp;
+    
+    //Dimniss auto focus
+    var myApp = GestureDetector(
+      child: materialApp,
+      onTap: () {
+        // FocusScopeNode currentFocus = FocusScope.of(context);
+        // currentFocus.requestFocus(new FocusNode());
+        WidgetsBinding.instance.focusManager.primaryFocus?.unfocus();
+        // if (!currentFocus.hasPrimaryFocus) {
+        //   currentFocus.unfocus();
+        // }
+      },
+    );
+
+    return myApp;
   }
 }
