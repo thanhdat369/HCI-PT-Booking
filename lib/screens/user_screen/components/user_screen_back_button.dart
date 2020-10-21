@@ -5,7 +5,7 @@ import 'package:hci_booking_pt/theme/colors.dart';
 class UserScreenBackButton extends StatefulWidget {
   Widget child;
   String title;
-  UserScreenBackButton({Key key, this.child, this.title}) : super(key: key);
+  UserScreenBackButton({Key key,@required this.child,@required this.title}) : super(key: key);
   @override
   _UserScreenBackButtonState createState() => _UserScreenBackButtonState();
 }
