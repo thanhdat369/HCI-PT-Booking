@@ -14,6 +14,7 @@ class _UserScreenBackButtonState extends State<UserScreenBackButton> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset:false,
       appBar: AppBar(
         backgroundColor: MainColors.kDark,
         leading: BackButton(color: MainColors.kLight),

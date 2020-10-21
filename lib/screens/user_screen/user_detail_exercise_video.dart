@@ -22,10 +22,11 @@ class _UserDetailExerciseVideoScreenState
           children: [
             Container(
               margin: EdgeInsets.only(bottom: 10),
-              child: Text(
+              child: Center(
+                  child: Text(
                 "Barbell Back Squat".toUpperCase(),
                 style: TextStyle(fontSize: 19),
-              ),
+              )),
             ),
             VideoPlayerScreen(),
             InstructionBlock(),
@@ -41,7 +42,16 @@ class InstructionBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
-        children: [Text("Instruction"), Text("dasdsad")],
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Instruction",
+            style: TextStyle(fontSize: 30),
+          ),
+          Container(
+            margin: EdgeInsets.only(top:10),
+              child: Text("This is description"))
+        ],
       ),
     );
   }
