@@ -37,6 +37,7 @@ class _UserScreenState extends State<UserScreen> {
         centerTitle: true,
       ),
       backgroundColor: MainColors.kDark,
+      resizeToAvoidBottomInset:false,
       body: ContainerRounded(
         child: _tabs[_currentindex].screen,
       ),

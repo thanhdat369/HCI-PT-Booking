@@ -9,28 +9,29 @@ class FindPT extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         RoundedInputSearch(
-                  hintText: "Find By Name",
-                  icon: Icons.search,
-                  width: 320,
-                  height: 50,
-                ),
-        Text("TOP RATED PERSONAL TRAINER", style: const TextStyle(
-          color:  const Color(0xffc3cbce),
-          fontWeight: FontWeight.w700,
-          fontFamily: "NotoSans"
-          )
-          ,),
-        //List_View_Demo(),
-        Text("", style: TextStyle(fontSize: 5)),
-        SizedBox(
-          height: 405,
-          child: List_View_Demo(),
+          hintText: "Find By Name",
+          icon: Icons.search,
+          width: 320,
+          height: 50,
         ),
-        
+        Text(
+          "TOP RATED PERSONAL TRAINER",
+          style: const TextStyle(
+              color: const Color(0xffc3cbce),
+              fontWeight: FontWeight.w700,
+              fontFamily: "NotoSans"),
+        ),
+        //List_View_Demo(),
+        Expanded(
+            // child: SingleChildScrollView(
+          child: List_View_Demo(),
+        )
+        // ),
       ],
     );
   }

@@ -37,9 +37,9 @@ class MyApp extends StatelessWidget {
       home: 
       //LoginScreen(),
       //RegisterScreen(),
-      CheckOutScreen(),
+      //CheckOutScreen(),
       //Profile(),
-      //UserScreen(),
+      UserScreen(),
       //Trainer_Search_Info(),
       //List_View_Demo(),
       
