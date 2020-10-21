@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/screens/user_screen/user_detail_exercise_video.dart';
 import 'package:hci_booking_pt/screens/welcome/login.dart';
+import 'package:hci_booking_pt/screens/welcome/login.dart';
+import 'package:hci_booking_pt/screens/welcome/register.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 void main() {

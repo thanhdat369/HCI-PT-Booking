@@ -5,13 +5,21 @@ import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/rounded_input.dart';
 import 'package:hci_booking_pt/components/rounded_password.dart';
 import 'package:hci_booking_pt/components/screen_with_background.dart';
+import 'package:hci_booking_pt/screens/user_screen/user_screen.dart';
 import 'package:hci_booking_pt/screens/welcome/components/form_title.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key key}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+  LoginScreen({Key key}) : super(key: key);
 
   @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  @override
+  TextEditingController userController = new TextEditingController();
+  TextEditingController passwordController = new TextEditingController();
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset:false,
@@ -28,13 +36,16 @@ class LoginScreen extends StatelessWidget {
               children: [
                 RoundedInputField(
                   hintText: "Username",
+                  textEditingController: userController,
                 ),
                 RoundedPasswordField(
                   ishaveVisibleButton: true,
                   hintText: "Password",
+                  textEditingController: passwordController,
                 ),
                 RoundedButton(
                   text: "Login",
+                  press: _login,
                 ),
               ],
             ),
@@ -88,5 +99,18 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _login() {
+    setState(() {
+      if (userController.text == "user" &&
+          passwordController.text == "123456") {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => UserScreen()));
+      }
+      // print(userController.text);
+      // print(passwordController.text);
+      // Navigator.push(context, MaterialPageRoute(builder: (context)=> UserScreen()));
+    });
   }
 }

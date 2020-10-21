@@ -36,9 +36,10 @@ class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
       child: TextField(
         obscureText: hidden_password,
         onChanged: widget.onChanged,
+        autofocus: false,
         controller: widget.textEditingController,
-        style: TextStyle(color: MainColors.kLight),
         cursorColor: MainColors.kMain,
+        style: TextStyle(color: MainColors.kLight),
         decoration: InputDecoration(
           fillColor: MainColors.kLight,
           icon: Icon(
