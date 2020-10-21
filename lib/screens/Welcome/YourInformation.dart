@@ -67,7 +67,7 @@ class RegisterScreen extends StatelessWidget {
 
                         value: true,
                         checkColor: MainColors.kMain, // color of tick Mark
-                        activeColor: MainColors.kSoftLight,
+                        activeColor: MainColors .kSoftLight,
                         onChanged: (bool value) {
                           print(value);
                           // setState(() {

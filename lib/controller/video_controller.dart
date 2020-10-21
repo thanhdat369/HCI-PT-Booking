@@ -1,3 +1,4 @@
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
@@ -10,8 +11,8 @@ class VideoPlayerScreen extends StatefulWidget {
 
 class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   VideoPlayerController _controller;
-  Future<void> _initializeVideoPlayerFuture;
-  bool _isPlaying = false;
+  // ChewieController
+  ChewieController chewieController;
 
   @override
   void initState() {
@@ -21,12 +22,18 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     _controller = VideoPlayerController.network(
       'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4',
     );
+    // _controller =
+    //     VideoPlayerController.asset("asset/videos/exercises/squat.mp4");
+    // _initializeVideoPlayerFuture = _controller.initialize();
 
-    _initializeVideoPlayerFuture = _controller.initialize();
-
-    _controller.setLooping(false);
-    _controller.setVolume(1.0);
-
+    // _controller.setLooping(false);
+    // _controller.setVolume(1.0);
+    chewieController = ChewieController(
+      videoPlayerController: _controller,
+      aspectRatio: 16 / 9,
+      autoPlay: false,
+      looping: true,
+    );
     super.initState();
   }
 
@@ -34,57 +41,17 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   void dispose() {
     // Ensure disposing of the VideoPlayerController to free up resources.
     _controller.dispose();
-
+    chewieController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        GestureDetector(
-          onTap: () {
-            setState(() {
-              this._isPlaying = !this._isPlaying;
-              if (_controller.value.isPlaying) {
-                _controller.pause();
-              } else {
-                _controller.play();
-              }
-            });
-          },
-          child: Container(
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Positioned(
-                  child: FutureBuilder(
-                    future: _initializeVideoPlayerFuture,
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.done) {
-                        return Container(
-                          child: AspectRatio(
-                            aspectRatio: _controller.value.aspectRatio,
-                            child: VideoPlayer(_controller),
-                          ),
-                        );
-                      } else {
-                        return Container(
-                          child: CircularProgressIndicator(),
-                        );
-                      }
-                    },
-                  ),
-                ),
-                Positioned(
-                  child: Icon(this._isPlaying ? null : Icons.play_arrow,
-                      size: 200),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
+    return Container(
+      color: Colors.black,
+      child: Chewie(
+        controller: this.chewieController,
+      ),
     );
   }
 }

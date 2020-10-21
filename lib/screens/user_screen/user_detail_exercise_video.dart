@@ -10,10 +10,39 @@ class UserDetailExerciseVideoScreen extends StatefulWidget {
       _UserDetailExerciseVideoScreenState();
 }
 
-class _UserDetailExerciseVideoScreenState extends State<UserDetailExerciseVideoScreen> {
+class _UserDetailExerciseVideoScreenState
+    extends State<UserDetailExerciseVideoScreen> {
   @override
   Widget build(BuildContext context) {
     return UserScreenBackButton(
-        title: "DatLe", child: SingleChildScrollView(child: VideoPlayerScreen()));
+        title: "EXERCISE DETAIL",
+        child: SingleChildScrollView(
+            child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              margin: EdgeInsets.only(bottom: 10),
+              child: Text(
+                "Barbell Back Squat".toUpperCase(),
+                style: TextStyle(fontSize: 19),
+              ),
+            ),
+            VideoPlayerScreen(),
+            InstructionBlock(),
+          ],
+        )));
+  }
+}
+
+class InstructionBlock extends StatelessWidget {
+  const InstructionBlock({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [Text("Instruction"), Text("dasdsad")],
+      ),
+    );
   }
 }

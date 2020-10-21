@@ -17,7 +17,7 @@ class _UserScreenBackButtonState extends State<UserScreenBackButton> {
       appBar: AppBar(
         backgroundColor: MainColors.kDark,
         leading: BackButton(color: MainColors.kLight),
-        title: Text(this.widget.title),
+        title: Text(this.widget.title.toUpperCase(),style: TextStyle(fontSize: 19,color: MainColors.kSoftLight),),
         centerTitle: true,
       ),
       backgroundColor: MainColors.kDark,
