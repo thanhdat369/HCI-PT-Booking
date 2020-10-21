@@ -4,6 +4,7 @@ import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/rounded_input.dart';
 import 'package:hci_booking_pt/components/rounded_password.dart';
 import 'package:hci_booking_pt/components/screen_with_background.dart';
+import 'package:hci_booking_pt/screens/Welcome/components/radio_button.dart';
 import 'package:hci_booking_pt/screens/welcome/components/form_title.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
@@ -20,7 +21,7 @@ class RegisterScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             BrandLabel(),
-            FormTitle(title: "REGISTER"),
+            FormTitle(title: "YOUR INFORMATION"),
             Column(
               children: [
                 RoundedInputField(
@@ -33,14 +34,7 @@ class RegisterScreen extends StatelessWidget {
                   hintText: "Enter Email",
                   icon: Icons.email,
                 ),
-                RoundedPasswordField(
-                  hintText: "Password",
-                  ishaveVisibleButton: false,
-                ),
-                RoundedPasswordField(
-                  hintText: "Confirm Password",
-                  ishaveVisibleButton: false,
-                ),
+
                 Column(
                   children: <Widget>[
                     new Row(
@@ -68,7 +62,7 @@ class RegisterScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-
+                   
                     Checkbox(
 
                         value: true,
@@ -84,22 +78,12 @@ class RegisterScreen extends StatelessWidget {
                   ],
                 ),
                 RoundedButton(
-                  text: "REGISTER",
+                  text: "SUBMIT",
                 ),
               ],
             ),
             Divider(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Already have an account?",
-                  style: TextStyle(height: 2,fontSize: 18),
-                ),
-                Text(" Login",
-                    style: TextStyle(color: MainColors.kMain, fontSize: 20,height: 2)),
-              ],
-            )
+
           ],
         ),
       ),
