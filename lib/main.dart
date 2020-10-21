@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/screens/user_screen/user_detail_exercise_video.dart';
 import 'package:hci_booking_pt/screens/welcome/login.dart';
+import 'package:hci_booking_pt/screens/welcome/login.dart';
+import 'package:hci_booking_pt/screens/welcome/register.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 void main() {
@@ -27,6 +29,20 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.red),
       home: LoginScreen(),
     );
-    return materialApp;
+    
+    //Dimniss auto focus
+    var myApp = GestureDetector(
+      child: materialApp,
+      onTap: () {
+        // FocusScopeNode currentFocus = FocusScope.of(context);
+        // currentFocus.requestFocus(new FocusNode());
+        WidgetsBinding.instance.focusManager.primaryFocus?.unfocus();
+        // if (!currentFocus.hasPrimaryFocus) {
+        //   currentFocus.unfocus();
+        // }
+      },
+    );
+
+    return myApp;
   }
 }

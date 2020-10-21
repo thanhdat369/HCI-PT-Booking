@@ -4,21 +4,29 @@ import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/rounded_input.dart';
 import 'package:hci_booking_pt/components/rounded_password.dart';
 import 'package:hci_booking_pt/components/screen_with_background.dart';
-import 'package:hci_booking_pt/screens/Welcome/components/radio_button.dart';
 import 'package:hci_booking_pt/screens/welcome/components/form_title.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
-class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({Key key}) : super(key: key);
+class RegisterScreen extends StatefulWidget {
+  RegisterScreen({Key key}) : super(key: key);
 
+  @override
+  _RegisterScreenState createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
+  int group_value = 1;
+  bool isCheck = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: MainColors.kDark,
       body: ScreenWithBackground(
         pathBackground: "asset/images/background/1.jpg",
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             BrandLabel(),
             FormTitle(title: "REGISTER"),
@@ -48,17 +56,27 @@ class RegisterScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           new Radio(
-                            value: 0,
-                            activeColor: MainColors.kMain,
-                          ),
+                              groupValue: group_value,
+                              value: 0,
+                              activeColor: MainColors.kMain,
+                              onChanged: (int) {
+                                setState(() {
+                                  group_value = int;
+                                });
+                              }),
                           new Text(
                             'Male',
                             style: new TextStyle(fontSize: 16.0),
                           ),
                           new Radio(
-                            value: 0,
-                            activeColor: MainColors.kMain,
-                          ),
+                              groupValue: group_value,
+                              value: 1,
+                              activeColor: MainColors.kMain,
+                              onChanged: (int) {
+                                setState(() {
+                                  group_value = int;
+                                });
+                              }),
                           new Text(
                             'Female',
                             style: new TextStyle(fontSize: 16.0),
@@ -69,19 +87,17 @@ class RegisterScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-
                     Checkbox(
-
-                        value: true,
+                        value: isCheck,
                         checkColor: MainColors.kMain, // color of tick Mark
-                        activeColor: MainColors.kSoftLight,
+                        activeColor: MainColors.kLight,
                         onChanged: (bool value) {
-                          print(value);
-                          // setState(() {
-                          //   checkBoxValue = value;
-                          // });
+                          setState(() {
+                            isCheck = value;
+                          });
                         }),
-                    Text("Agree to the Terms of Service & Privacy Policy", style: TextStyle( fontSize: 15)),
+                    Text("Agree to the Terms of Service & Privacy Policy",
+                        style: TextStyle(fontSize: 13)),
                   ],
                 ),
                 RoundedButton(
@@ -89,16 +105,21 @@ class RegisterScreen extends StatelessWidget {
                 ),
               ],
             ),
-            Divider(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   "Already have an account?",
-                  style: TextStyle(height: 2,fontSize: 18),
+                  style: TextStyle(height: 2, fontSize: 18),
                 ),
-                Text(" Login",
-                    style: TextStyle(color: MainColors.kMain, fontSize: 20,height: 2)),
+                GestureDetector(
+                  child: Text(" Login",
+                      style: TextStyle(
+                          color: MainColors.kMain, fontSize: 20, height: 2)),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
               ],
             )
           ],
