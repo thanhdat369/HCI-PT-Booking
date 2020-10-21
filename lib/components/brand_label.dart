@@ -6,7 +6,7 @@ class BrandLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: EdgeInsets.symmetric(vertical: 5),
       child:Text("KADAFI",
         style: const TextStyle(
             fontWeight: FontWeight.w700,
