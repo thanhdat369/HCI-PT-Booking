@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.red),
       home: LoginScreen(),
     );
-    
+
     //Dimniss auto focus
     var myApp = GestureDetector(
       child: materialApp,
