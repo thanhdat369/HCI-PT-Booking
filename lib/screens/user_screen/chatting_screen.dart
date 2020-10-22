@@ -21,47 +21,49 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return UserScreenBackButton(
       title: "MICHAEL JORDAN",
-      child: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            MessagesStream(),
-            Container(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Expanded(
-                    child: TextField(
-                      style: TextStyle(color: MainColors.kLight),
-                      decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: MainColors.kMain, width: 2.0),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          fillColor: MainColors.kMain,
-                          hintText: "Say something...",
-                          hintStyle: TextStyle(color: Colors.white70),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: MainColors.kMain, width: 2.0),
-                            borderRadius: BorderRadius.circular(10.0),
-                          )),
-                    ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          MessagesStream(),
+          Container(
+              child: SingleChildScrollView(
+                  child: Padding(
+            padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: TextField(
+                    style: TextStyle(color: MainColors.kLight),
+                    decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: MainColors.kMain, width: 2.0),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        fillColor: MainColors.kMain,
+                        hintText: "Say something...",
+                        hintStyle: TextStyle(color: Colors.white70),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: MainColors.kMain, width: 2.0),
+                          borderRadius: BorderRadius.circular(10.0),
+                        )),
                   ),
-                  InkWell(
-                      onTap: () => () {},
-                      child: Padding(
-                        padding: EdgeInsets.only(left: 10),
-                        child: Icon(Icons.arrow_forward,
-                            color: MainColors.kMain, size: 40),
-                      )),
-                ],
-              ),
+                ),
+                InkWell(
+                    onTap: () => () {},
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Icon(Icons.arrow_forward,
+                          color: MainColors.kMain, size: 40),
+                    )),
+              ],
             ),
-          ],
-        ),
+          ))),
+        ],
       ),
     );
   }
