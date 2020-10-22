@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/components/brand_label.dart';
 import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/rounded_input.dart';
-import 'package:hci_booking_pt/components/rounded_password.dart';
 import 'package:hci_booking_pt/components/screen_with_background.dart';
-import 'package:hci_booking_pt/screens/Welcome/components/radio_button.dart';
 import 'package:hci_booking_pt/screens/welcome/components/form_title.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
@@ -34,7 +32,6 @@ class RegisterScreen extends StatelessWidget {
                   hintText: "Enter Email",
                   icon: Icons.email,
                 ),
-
                 Column(
                   children: <Widget>[
                     new Row(
@@ -62,9 +59,7 @@ class RegisterScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                   
                     Checkbox(
-
                         value: true,
                         checkColor: MainColors.kMain, // color of tick Mark
                         activeColor: MainColors.kSoftLight,
@@ -74,7 +69,8 @@ class RegisterScreen extends StatelessWidget {
                           //   checkBoxValue = value;
                           // });
                         }),
-                    Text("Agree to the Terms of Service & Privacy Policy", style: TextStyle( fontSize: 15)),
+                    Text("Agree to the Terms of Service & Privacy Policy",
+                        style: TextStyle(fontSize: 15)),
                   ],
                 ),
                 RoundedButton(
@@ -83,7 +79,6 @@ class RegisterScreen extends StatelessWidget {
               ],
             ),
             Divider(),
-
           ],
         ),
       ),

@@ -1,45 +1,62 @@
 import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
-class RoundedPasswordField extends StatelessWidget {
+class RoundedPasswordField extends StatefulWidget {
   final String hintText;
   final IconData icon;
   final ValueChanged<String> onChanged;
   final bool ishaveVisibleButton;
-  const RoundedPasswordField(
+  TextEditingController textEditingController;
+  RoundedPasswordField(
       {Key key,
       this.hintText,
       this.icon = Icons.lock,
       this.onChanged,
-      this.ishaveVisibleButton = true})
+      this.ishaveVisibleButton = true,
+      this.textEditingController})
       : super(key: key);
+  @override
+  _RoundedPasswordFieldState createState() => _RoundedPasswordFieldState();
+}
+
+class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
+  bool hidden_password = true;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.symmetric(vertical: 5),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-      width: size.width * 0.85,
+      width: size.width * 0.8,
+      height: size.height * 0.08,
       decoration: BoxDecoration(
-        color: MainColors.kSoftLight.withOpacity(0.5),
+        color: MainColors.kSoftLight.withOpacity(0.2),
         borderRadius: BorderRadius.all(Radius.circular(4)),
       ),
       child: TextField(
-        obscureText: true,
-        onChanged: onChanged,
+        obscureText: hidden_password,
+        onChanged: widget.onChanged,
+        autofocus: false,
+        controller: widget.textEditingController,
         cursorColor: MainColors.kMain,
+        style: TextStyle(color: MainColors.kLight),
         decoration: InputDecoration(
           fillColor: MainColors.kLight,
           icon: Icon(
-            icon,
+            widget.icon,
             color: MainColors.kMain,
           ),
-          hintText: hintText,
+          hintText: widget.hintText,
+          hintStyle: TextStyle(color: MainColors.kLight),
           border: InputBorder.none,
-          suffixIcon: ishaveVisibleButton
-              ? Icon(
-                  Icons.visibility,
-                  color: MainColors.kMain,
+          suffixIcon: widget.ishaveVisibleButton
+              ? IconButton(
+                  icon: Icon(Icons.visibility, color: MainColors.kMain),
+                  onPressed: () {
+                    setState(() {
+                      hidden_password = !hidden_password;
+                    });
+                  },
                 )
               : null,
         ),

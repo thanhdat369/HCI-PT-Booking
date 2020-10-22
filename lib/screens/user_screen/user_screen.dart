@@ -21,7 +21,7 @@ class UserScreen extends StatefulWidget {
 }
 
 class _UserScreenState extends State<UserScreen> {
-  int _currentindex = 0;
+  int _currentindex = 2;
   final _tabs = [
     UserScreenItemDTO("TRAINING", UserHome()),
     UserScreenItemDTO("FIND YOUR TRAINER", FindPT()),
@@ -32,6 +32,7 @@ class _UserScreenState extends State<UserScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: MainColors.kDark,
         title: Text(_tabs[_currentindex].title),
         centerTitle: true,
