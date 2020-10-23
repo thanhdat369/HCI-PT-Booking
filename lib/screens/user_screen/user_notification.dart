@@ -78,7 +78,7 @@ class NotificationItem extends StatelessWidget {
                             maxLines: 3,
                             style: TextStyle(
                                 letterSpacing: 1.0,
-                                fontFamily: "ProductSans",
+                                fontFamily: "Product Sans",
                                 fontSize: 14),
                             overflow: TextOverflow.clip)), //description
                   ],

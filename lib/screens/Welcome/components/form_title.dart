@@ -7,9 +7,12 @@ class FormTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.symmetric(vertical: 5),
-        child: Text(this.title,
-            style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 30),
+        margin: EdgeInsets.only(top: 0, bottom: 5),
+        child: Text(this.title.toUpperCase(),
+            style: const TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 20,
+                fontFamily: "Product Sans"),
             textAlign: TextAlign.center));
   }
 }

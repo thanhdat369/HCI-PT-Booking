@@ -29,7 +29,8 @@ dependencies:
   chewie: ^0.9.10
   video_player: 
     
-
+  smooth_star_rating: ^1.1.1
+  
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -76,6 +77,14 @@ flutter:
         - asset: asset/font/Product Sans Italic.ttf
           style: italic
         - asset: asset/font/Product Sans Bold.ttf
+          weight: 700
+          
+    - family: Noto Sans 
+      fonts:
+        - asset: asset/font/NotoSans-Regular.ttf
+        - asset: asset/font/NotoSans-Italic.ttf
+          style: italic
+        - asset: asset/font/NotoSans-Bold.ttf
           weight: 700
   #   - family: Trajan Pro
   #     fonts:
