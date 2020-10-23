@@ -21,24 +21,36 @@ class UserScreen extends StatefulWidget {
 }
 
 class _UserScreenState extends State<UserScreen> {
-  int _currentindex = 2;
-  final _tabs = [
-    UserScreenItemDTO("TRAINING", UserHome()),
-    UserScreenItemDTO("FIND YOUR TRAINER", FindPT()),
-    UserScreenItemDTO("NOTIFICATION", UserNotification()),
-    UserScreenItemDTO("PROFILE", Profile()),
-  ];
+  int _currentindex = 0;
+
   @override
   Widget build(BuildContext context) {
+    var _tabs = [
+      UserScreenItemDTO("TRAINING", UserHome(
+        press: () {
+          setState(() {
+            _currentindex = 1;
+          });
+        },
+      )),
+      UserScreenItemDTO("FIND YOUR TRAINER", FindPT()),
+      UserScreenItemDTO("NOTIFICATION", UserNotification()),
+      UserScreenItemDTO("PROFILE", Profile()),
+    ];
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: MainColors.kDark,
-        title: Text(_tabs[_currentindex].title),
+        title: Text(_tabs[_currentindex].title,
+            style: TextStyle(
+                color: MainColors.kSoftLight,
+                fontFamily: "Noto Sans",
+                fontWeight: FontWeight.w700,
+                fontSize: 19)),
         centerTitle: true,
       ),
       backgroundColor: MainColors.kDark,
-      resizeToAvoidBottomInset:false,
+      resizeToAvoidBottomInset: false,
       body: ContainerRounded(
         child: _tabs[_currentindex].screen,
       ),

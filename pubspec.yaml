@@ -78,6 +78,14 @@ flutter:
           style: italic
         - asset: asset/font/Product Sans Bold.ttf
           weight: 700
+          
+    - family: Noto Sans 
+      fonts:
+        - asset: asset/font/NotoSans-Regular.ttf
+        - asset: asset/font/NotoSans-Italic.ttf
+          style: italic
+        - asset: asset/font/NotoSans-Bold.ttf
+          weight: 700
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
