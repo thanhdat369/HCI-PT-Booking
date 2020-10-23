@@ -32,7 +32,6 @@ class _UserScreenState extends State<UserScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         backgroundColor: MainColors.kDark,
         title: Text(_tabs[_currentindex].title),
         centerTitle: true,
