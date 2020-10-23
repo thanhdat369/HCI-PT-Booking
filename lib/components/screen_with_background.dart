@@ -30,7 +30,7 @@ class ScreenWithBackground extends StatelessWidget {
           ),
         )
         ),
-        SingleChildScrollView(
+        Container(
           child: this.child,
         )
       ],

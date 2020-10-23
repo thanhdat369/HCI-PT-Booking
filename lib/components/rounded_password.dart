@@ -27,16 +27,19 @@ class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 5),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-      width: size.width * 0.85,
+      width: size.width * 0.8,
+      height: size.height * 0.08,
       decoration: BoxDecoration(
-        color: MainColors.kSoftLight.withOpacity(0.5),
+        color: MainColors.kSoftLight.withOpacity(0.2),
         borderRadius: BorderRadius.all(Radius.circular(4)),
       ),
       child: TextField(
         obscureText: hidden_password,
         onChanged: widget.onChanged,
+        autofocus: false,
         controller: widget.textEditingController,
         cursorColor: MainColors.kMain,
+        style: TextStyle(color: MainColors.kLight),
         decoration: InputDecoration(
           fillColor: MainColors.kLight,
           icon: Icon(
@@ -44,6 +47,7 @@ class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
             color: MainColors.kMain,
           ),
           hintText: widget.hintText,
+          hintStyle: TextStyle(color: MainColors.kLight),
           border: InputBorder.none,
           suffixIcon: widget.ishaveVisibleButton
               ? IconButton(

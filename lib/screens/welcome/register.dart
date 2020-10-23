@@ -20,11 +20,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: MainColors.kDark,
       body: ScreenWithBackground(
         pathBackground: "asset/images/background/1.jpg",
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             BrandLabel(),
@@ -111,9 +112,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   "Already have an account?",
                   style: TextStyle(height: 2, fontSize: 18),
                 ),
-                Text(" Login",
-                    style: TextStyle(
-                        color: MainColors.kMain, fontSize: 20, height: 2)),
+                GestureDetector(
+                  child: Text(" Login",
+                      style: TextStyle(
+                          color: MainColors.kMain, fontSize: 20, height: 2)),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
               ],
             )
           ],

@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hci_booking_pt/components/brand_label.dart';
@@ -9,6 +7,7 @@ import 'package:hci_booking_pt/components/rounded_password.dart';
 import 'package:hci_booking_pt/components/screen_with_background.dart';
 import 'package:hci_booking_pt/screens/user_screen/user_screen.dart';
 import 'package:hci_booking_pt/screens/welcome/components/form_title.dart';
+import 'package:hci_booking_pt/screens/welcome/register.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -19,16 +18,18 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  @override
   TextEditingController userController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: MainColors.kDark,
       body: ScreenWithBackground(
         pathBackground: "asset/images/background/1.jpg",
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             BrandLabel(),
             FormTitle(title: "Login"),
@@ -39,6 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   textEditingController: userController,
                 ),
                 RoundedPasswordField(
+                  ishaveVisibleButton: true,
                   hintText: "Password",
                   textEditingController: passwordController,
                 ),
@@ -91,7 +93,16 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text("Don't have an account ?  "),
-                Text("Register", style: TextStyle(color: MainColors.kMain)),
+                GestureDetector(
+                  child: Text("Register",
+                      style: TextStyle(color: MainColors.kMain)),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RegisterScreen()));
+                  },
+                ),
               ],
             )
           ],
@@ -100,10 +111,16 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  void _clear_text() {
+    userController.clear();
+    passwordController.clear();
+  }
+
   void _login() {
     setState(() {
       if (userController.text == "user" &&
           passwordController.text == "123456") {
+        _clear_text();
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => UserScreen()));
       }

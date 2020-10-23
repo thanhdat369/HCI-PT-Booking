@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hci_booking_pt/components/my_circleavt.dart';
 import 'package:hci_booking_pt/components/rounded_button.dart';
-import 'package:hci_booking_pt/screens/user_screen/user_screen.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 class CircleAvtAccount extends StatelessWidget {
@@ -20,14 +21,9 @@ class CircleAvtAccount extends StatelessWidget {
     return Column(children: [
       Stack(
         children: [
-          CircleAvatar(
+          MyCircleAvatar(
             radius: this.radius,
-            child: ClipOval(
-              child: Image.asset(
-                this.imagePath,
-                fit: BoxFit.cover,
-              ),
-            ),
+            imgPath: this.imagePath,
           ),
           // Change avt
           Positioned(
@@ -67,23 +63,33 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        CircleAvtAccount(),
-        MyIcon(
-          icon: Icons.today_sharp,
-          title: "Dat Le",
+        CircleAvtAccount(
+          name: "Dat Le",
         ),
-        MyIcon(
-          icon: Icons.today_sharp,
-          title: "Dat Le",
-        ),
-        MyIcon(
-          icon: Icons.today_sharp,
-          title: "Dat Le",
-        ),
-        MyIcon(
-          icon: Icons.today_sharp,
-          title: "Dat Le",
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              MyIcon(
+                icon: FontAwesomeIcons.user,
+                title: "Gymer",
+              ),
+              MyIcon(
+                icon: FontAwesomeIcons.mailBulk,
+                title: "thanhdat3451@outlook.com",
+              ),
+              MyIcon(
+                icon: FontAwesomeIcons.phone,
+                title: "0123456789",
+              ),
+              MyIcon(
+                icon: FontAwesomeIcons.venusMars,
+                title: "Male",
+              ),
+            ],
+          ),
         ),
         RoundedButton(
           text: "Log out",
@@ -103,10 +109,13 @@ class MyIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+      padding: EdgeInsets.only(left: 5),
+      width: size.width * 0.8,
       alignment: Alignment.center,
-      child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+      child: Row(children: [
         Container(
             margin: EdgeInsets.only(right: 30),
             child: Icon(this.icon, color: MainColors.kMain)),
@@ -116,7 +125,7 @@ class MyIcon extends StatelessWidget {
             color: const Color(0xffc3cbce),
             fontWeight: FontWeight.w500,
             fontStyle: FontStyle.normal,
-            fontSize: 20.0,
+            fontSize: 16,
           ),
         )
       ]),
