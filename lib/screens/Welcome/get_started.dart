@@ -23,7 +23,7 @@ class GetStarted extends StatelessWidget {
                   style: const TextStyle(
                       color: const Color(0xffffffff),
                       fontWeight: FontWeight.w400,
-                      fontFamily: "ProductSans",
+                      fontFamily: "Product Sans",
                       fontStyle: FontStyle.normal,
                       fontSize: 16),
                   textAlign: TextAlign.center),

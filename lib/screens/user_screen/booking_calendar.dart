@@ -20,16 +20,17 @@ class _BookingCalenderUserState extends State<BookingCalenderUser> {
 
   Widget time_item(String time, double width) {
     return Container(
-      
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(15)),
-        border: Border.all(width: 3,color: MainColors.kLight) 
-      ),
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+          border: Border.all(width: 3, color: MainColors.kLight)),
       alignment: Alignment.center,
       width: width,
       padding: EdgeInsets.all(5),
       margin: EdgeInsets.all(10),
-      child: Text(time,style: TextStyle(fontFamily: "ProductSans",fontSize: 20),),
+      child: Text(
+        time,
+        style: TextStyle(fontFamily: "Product Sans", fontSize: 20),
+      ),
     );
   }
 
@@ -37,8 +38,9 @@ class _BookingCalenderUserState extends State<BookingCalenderUser> {
     List a = <Widget>[];
     int i = 8;
     while (i <= 22) {
-      String time_str = (i>=10)?i.toString() + ": 00" : "0"+i.toString() + ": 00" ;
-      a.add(time_item(time_str,130));
+      String time_str =
+          (i >= 10) ? i.toString() + ": 00" : "0" + i.toString() + ": 00";
+      a.add(time_item(time_str, 130));
       i = i + 1;
     }
     return Wrap(children: a);
