@@ -61,9 +61,9 @@ class _BookingCalenderUserState extends State<BookingCalenderUser> {
               initialCalendarFormat: CalendarFormat.week,
               headerStyle: HeaderStyle(
                 leftChevronIcon:
-                    Icon(Icons.arrow_back_ios_outlined, color: Colors.white),
+                    Icon(Icons.arrow_forward, color: Colors.white),
                 rightChevronIcon:
-                    Icon(Icons.arrow_forward_ios_outlined, color: Colors.white),
+                    Icon(Icons.arrow_forward, color: Colors.white),
                 formatButtonVisible: false,
                 centerHeaderTitle: true,
               ),

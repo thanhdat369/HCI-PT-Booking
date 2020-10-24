@@ -5,6 +5,7 @@ import 'package:hci_booking_pt/screens/welcome/login.dart';
 import 'package:hci_booking_pt/screens/user_screen/chatting_screen.dart';
 import 'package:hci_booking_pt/screens/welcome/register.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
+import 'package:hci_booking_pt/screens/user_screen//Verification.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
             fontFamily: "ProductSans",
           ),
           primarySwatch: Colors.red),
-      home: LoginScreen(),
+      home: Verification(),
     );
 
     //Dimniss auto focus
