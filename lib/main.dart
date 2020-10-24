@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/screens/user_screen/checkout.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/scroll_profile_trainer.dart';
 import 'package:hci_booking_pt/screens/user_screen/profile_trainer.dart';
+import 'package:hci_booking_pt/screens/user_screen/rounder_training_day.dart';
 import 'package:hci_booking_pt/screens/user_screen/user_detail_exercise_video.dart';
 import 'package:hci_booking_pt/screens/welcome/login.dart';
 import 'package:hci_booking_pt/screens/welcome/login.dart';
@@ -31,11 +32,11 @@ class MyApp extends StatelessWidget {
             fontFamily: "Product Sans",
           ),
           primarySwatch: Colors.red),
-      home: //LoginScreen(),
+      home: LoginScreen(),
       //CheckOutScreen(),
-      Profile_Trainer(),
+      //Profile_Trainer(),
       //ScrollTrainer(),
-
+      //RoundedTrainingDay(),
     );
 
     //Dimniss auto focus

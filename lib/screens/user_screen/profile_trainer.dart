@@ -207,19 +207,3 @@ class List_View_Hori extends StatelessWidget {
   }
 }
 
-Widget a(String titile, String price) {
-    return Container(
-        //margin: EdgeInsets.only(top: 20, bottom: 20),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Container(width: 235, child: Text(titile, style: const TextStyle(fontSize: 15,fontWeight: FontWeight.w700,
-              fontFamily: "NotoSans",),)),
-            Container(
-              width: 100,
-              child: Text(price, style: const TextStyle(fontSize: 15,fontWeight: FontWeight.w700,
-              fontFamily: "NotoSans",),),
-            )
-          ],
-        ));
-  }
