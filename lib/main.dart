@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           ).apply(
             bodyColor: MainColors.kLight,
             displayColor: Colors.blue,
-            fontFamily: "ProductSans",
+            fontFamily: "Product Sans",
           ),
           primarySwatch: Colors.red),
       home: LoginScreen(),

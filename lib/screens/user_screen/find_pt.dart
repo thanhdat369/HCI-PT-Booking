@@ -11,12 +11,12 @@ class FindPT extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         RoundedInputSearch(
           hintText: "Find By Name",
           icon: Icons.search,
-          width: 320,
+          width: size.width * 0.85,
           height: 50,
         ),
         Text(
@@ -28,7 +28,7 @@ class FindPT extends StatelessWidget {
         ),
         //List_View_Demo(),
         Expanded(
-            // child: SingleChildScrollView(
+          // child: SingleChildScrollView(
           child: List_View_Demo(),
         )
         // ),

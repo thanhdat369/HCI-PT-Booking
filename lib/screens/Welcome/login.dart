@@ -51,16 +51,20 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
             Column(children: [
-              Text("Forget Password ?",
-                  style: const TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontFamily: "ProductSans",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 16),
-                  textAlign: TextAlign.center),
+              Padding(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: Text("Forgot Password ?",
+                      style: const TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontFamily: "Product Sans",
+                          fontStyle: FontStyle.normal,
+                          fontSize: 13),
+                      textAlign: TextAlign.center)),
               Container(
+                padding: EdgeInsets.only(top: 10),
                 child: Text("OR",
                     style: const TextStyle(
+                        fontFamily: "Product Sans",
                         fontWeight: FontWeight.w400,
                         fontStyle: FontStyle.normal,
                         fontSize: 16),
@@ -68,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ]),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 30),
+              margin: EdgeInsets.symmetric(vertical: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -77,14 +81,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: FaIcon(
                         FontAwesomeIcons.facebook,
                         color: Colors.blue,
-                        size: 70,
+                        size: 40,
                       )),
                   Container(
                       margin: EdgeInsets.symmetric(horizontal: 15),
                       child: FaIcon(
                         FontAwesomeIcons.google,
                         color: Colors.red,
-                        size: 70,
+                        size: 40,
                       )),
                 ],
               ),
@@ -95,7 +99,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 Text("Don't have an account ?  "),
                 GestureDetector(
                   child: Text("Register",
-                      style: TextStyle(color: MainColors.kMain)),
+                      style: TextStyle(
+                          color: MainColors.kMain,
+                          fontFamily: "Product Sans",
+                          fontWeight: FontWeight.w700,
+                          decoration: TextDecoration.underline)),
                   onTap: () {
                     Navigator.push(
                         context,
