@@ -16,16 +16,17 @@ class RoundedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
-      color: this.color,
-      margin: EdgeInsets.symmetric(vertical: 5),
-      width: size.width * 0.85,
-      height: size.height * 0.07,
-      child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(8)),
-        child: FlatButton(
-          color: color,
-          onPressed: press,
+    return GestureDetector(
+      onTap: press,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(5)),
+          color: this.color,
+        ),
+        margin: EdgeInsets.symmetric(vertical: 5),
+        width: size.width * 0.85,
+        height: size.height * 0.07,
+        child: Center(
           child: Text(
             text.toUpperCase(),
             textAlign: TextAlign.center,

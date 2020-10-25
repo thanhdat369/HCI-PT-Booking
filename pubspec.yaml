@@ -57,6 +57,7 @@ flutter:
     - asset/images/background/
     - asset/images/user_screen/
     - asset/videos/exercises/squat.mp4
+    - asset/images/exercises/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
