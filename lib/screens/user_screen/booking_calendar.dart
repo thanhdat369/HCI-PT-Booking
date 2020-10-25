@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hci_booking_pt/screens/user_screen/components/item_hour.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/user_screen_back_button.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -19,28 +20,16 @@ class _BookingCalenderUserState extends State<BookingCalenderUser> {
   }
 
   Widget time_item(String time, double width) {
-    return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(15)),
-          border: Border.all(width: 3, color: MainColors.kLight)),
-      alignment: Alignment.center,
-      width: width,
-      padding: EdgeInsets.all(5),
-      margin: EdgeInsets.all(10),
-      child: Text(
-        time,
-        style: TextStyle(fontFamily: "Product Sans", fontSize: 20),
-      ),
-    );
+    return ItemHour();
   }
 
-  time_of_day() {
+  time_of_day(double width) {
     List a = <Widget>[];
     int i = 8;
     while (i <= 22) {
       String time_str =
           (i >= 10) ? i.toString() + ": 00" : "0" + i.toString() + ": 00";
-      a.add(time_item(time_str, 130));
+      a.add(time_item(time_str, width));
       i = i + 1;
     }
     return Wrap(children: a);
@@ -53,6 +42,7 @@ class _BookingCalenderUserState extends State<BookingCalenderUser> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return UserScreenBackButton(
         title: "Booking",
         child: SingleChildScrollView(
@@ -78,7 +68,7 @@ class _BookingCalenderUserState extends State<BookingCalenderUser> {
               color: MainColors.kMain,
               height: 10,
             ),
-            time_of_day(),
+            time_of_day(size.width * 0.25),
           ],
         )));
   }
