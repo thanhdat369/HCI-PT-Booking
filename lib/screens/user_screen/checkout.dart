@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/square_image.dart';
+import 'package:hci_booking_pt/screens/user_screen/booking_calendar.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/user_screen_back_button.dart';
+import 'package:hci_booking_pt/screens/user_screen/pay_with_momo.dart';
+import 'package:hci_booking_pt/screens/user_screen/payment_method.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 class CheckOutScreen extends StatelessWidget {
@@ -27,14 +30,27 @@ class CheckOut extends StatelessWidget {
     return Container(
         margin: EdgeInsets.only(top: 20, bottom: 20),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(width: 240, child: Text(titile, style: const TextStyle(fontSize: 15,fontWeight: FontWeight.w700,
-              fontFamily: "NotoSans",),)),
             Container(
-              width: 40,
-              child: Text(price, style: const TextStyle(fontSize: 15,fontWeight: FontWeight.w700,
-              fontFamily: "NotoSans",),),
+                width: 240,
+                child: Text(
+                  titile,
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: "Noto Sans",
+                  ),
+                )),
+            Container(
+              child: Text(
+                price,
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: "Noto Sans",
+                ),
+              ),
             )
           ],
         ));
@@ -42,10 +58,11 @@ class CheckOut extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Divider(
           color: Colors.white,
@@ -54,46 +71,49 @@ class CheckOut extends StatelessWidget {
           indent: 10,
           endIndent: 10,
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 10),
+        Container(
+          width: size.width * 0.85,
+          alignment: Alignment.centerLeft,
           child: Text("Bill Detail",
               style: const TextStyle(
                 fontWeight: FontWeight.w700,
-                fontFamily: "NotoSans",
+                fontFamily: "Noto Sans",
                 fontSize: 18,
               ),
               textAlign: TextAlign.left),
         ),
         Container(
-          margin: EdgeInsets.only(bottom: 25, top: 15, left: 30),
-            child: Column(
-          children: [
-            a("Personal Trainer Fee", "\$ 29"),
-          ],
-        )),
-
+            alignment: Alignment.centerRight,
+            width: size.width * 0.85,
+            child: a("Personal Trainer Fee", "\$29")),
         Container(
-          alignment: Alignment.bottomRight,
+          alignment: Alignment.centerRight,
           margin: EdgeInsets.only(right: 10),
-          child: Text("Total           \$29", style: TextStyle(fontWeight: FontWeight.w700,
-                fontFamily: "NotoSans",
-                fontSize: 18,),),
+          child: Text(
+            "Total           \$29",
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontFamily: "Noto Sans",
+              fontSize: 18,
+            ),
+          ),
         ),
-
         Container(
             margin: EdgeInsets.only(top: 100),
             alignment: Alignment.bottomCenter,
             child: RoundedButton(
-          text: 'PAYMENT',
-        )),
-
+                text: 'PAYMENT',
+                press: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => PaymentMethod()));
+                })),
         Container(
             margin: EdgeInsets.only(top: 10),
             alignment: Alignment.bottomCenter,
             child: RoundedButton(
-          text: 'CANCEL',
-          color: MainColors.kDark,
-        )),
+              text: 'CANCEL',
+              color: MainColors.kDark,
+            )),
       ],
     ));
   }
@@ -110,20 +130,22 @@ class Info_CheckOut extends StatelessWidget {
           padding: EdgeInsets.only(left: 10),
           alignment: Alignment.topLeft,
           child: Text(
-                      "Your contact with",
-                      style: const TextStyle(
-                          color: const Color(0xffffffff),
-                          fontWeight: FontWeight.w700,
-                          fontFamily: "NotoSans",
-                          fontStyle: FontStyle.normal,
-                          fontSize: 18),
-                    ),
+            "Your contact with",
+            style: const TextStyle(
+                color: const Color(0xffffffff),
+                fontWeight: FontWeight.w700,
+                fontFamily: "Noto Sans",
+                fontStyle: FontStyle.normal,
+                fontSize: 18),
+          ),
         ),
         Container(
           padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 7),
           child: Row(
             children: [
-              SquareImage(size: 110,),
+              SquareImage(
+                size: 110,
+              ),
               Container(
                 height: 110,
                 margin: EdgeInsets.only(left: 15),
@@ -135,34 +157,35 @@ class Info_CheckOut extends StatelessWidget {
                       style: const TextStyle(
                           color: const Color(0xffffffff),
                           fontWeight: FontWeight.w700,
-                          fontFamily: "NotoSans",
+                          fontFamily: "Noto Sans",
                           fontStyle: FontStyle.normal,
                           fontSize: 20),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 4,bottom: 3),
+                      padding: const EdgeInsets.only(top: 4, bottom: 3),
                       child: Text(
                         "October  30,  2020",
                         style: const TextStyle(
                             color: const Color(0xffc3cbce),
                             fontWeight: FontWeight.w700,
-                            fontFamily: "NotoSans",
+                            fontFamily: "Noto Sans",
                             fontStyle: FontStyle.normal,
                             fontSize: 15),
                       ),
                     ),
-
                     Padding(
                       padding: const EdgeInsets.only(bottom: 3),
-                      child: Text("                     -", style: const TextStyle(),),
+                      child: Text(
+                        "                     -",
+                        style: const TextStyle(),
+                      ),
                     ),
-
                     Text(
                       "November 30, 2020",
                       style: const TextStyle(
                           color: const Color(0xffc3cbce),
                           fontWeight: FontWeight.w700,
-                          fontFamily: "NotoSans",
+                          fontFamily: "Noto Sans",
                           fontStyle: FontStyle.normal,
                           fontSize: 15),
                     ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hci_booking_pt/components/image_rounded_button.dart';
 import 'package:hci_booking_pt/components/rounded_button.dart';
+import 'package:hci_booking_pt/screens/user_screen/pay_with_momo.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 import 'components/user_screen_back_button.dart';
@@ -52,24 +54,31 @@ class _PaymentMethodState extends State<PaymentMethod> {
             children: [
               Padding(
                   padding: EdgeInsets.only(),
-                  child: RoundedButton(
-                    text: "PAY WITH ATM CARD",
-                  )),
+                  child: ImageRoundedButton(
+                      text: "PAY WITH ATM CARD",
+                      url: "asset/images/logo/debitIcon.png")),
               Padding(
                   padding: EdgeInsets.only(),
-                  child: RoundedButton(
-                    text: "PAY WITH CREDIT CARD",
-                  )),
+                  child: ImageRoundedButton(
+                      text: "PAY WITH CREDIT CARD",
+                      url: "asset/images/logo/creditIcon.png")),
               Padding(
-                  padding: EdgeInsets.only(),
-                  child: RoundedButton(
+                padding: EdgeInsets.only(),
+                child: ImageRoundedButton(
+                    press: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PayWithMomo()));
+                    },
                     text: "PAY WITH MOMO",
-                  )),
+                    url: "asset/images/logo/momoIcon.png"),
+              ),
               Padding(
                   padding: EdgeInsets.only(),
-                  child: RoundedButton(
-                    text: "PAY WITH AIRPAY",
-                  ))
+                  child: ImageRoundedButton(
+                      text: "PAY WITH AIRPAY",
+                      url: "asset/images/logo/airpayIcon.png"))
             ],
           )),
           Padding(

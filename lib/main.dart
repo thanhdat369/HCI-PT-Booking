@@ -1,14 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hci_booking_pt/screens/user_screen/checkout.dart';
-import 'package:hci_booking_pt/screens/user_screen/components/scroll_profile_trainer.dart';
-import 'package:hci_booking_pt/screens/user_screen/profile_trainer.dart';
-import 'package:hci_booking_pt/screens/user_screen/rented.dart';
-import 'package:hci_booking_pt/screens/user_screen/rounder_training_day.dart';
-import 'package:hci_booking_pt/screens/user_screen/user_detail_exercise_video.dart';
-import 'package:hci_booking_pt/screens/welcome/login.dart';
-import 'package:hci_booking_pt/screens/welcome/login.dart';
-import 'package:hci_booking_pt/screens/user_screen/chatting_screen.dart';
-import 'package:hci_booking_pt/screens/welcome/register.dart';
+import 'package:hci_booking_pt/screens/Welcome/login.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 void main() {
@@ -34,11 +25,11 @@ class MyApp extends StatelessWidget {
           ),
           primarySwatch: Colors.red),
       home: //LoginScreen(),
-      //CheckOutScreen(),
-      //Profile_Trainer(),
-      //ScrollTrainer(),
-      //RoundedTrainingDay(),
-      RentedScreen(),
+          //CheckOutScreen(),
+          //Profile_Trainer(),
+          //ScrollTrainer(),
+          //RoundedTrainingDay(),
+          LoginScreen(),
     );
 
     //Dimniss auto focus

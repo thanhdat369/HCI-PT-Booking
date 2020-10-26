@@ -21,7 +21,7 @@ class RoundedButtonSize extends StatelessWidget {
   Widget build(BuildContext context) {
     //Size size = MediaQuery.of(context).size;
     return Container(
-      color: this.color ,
+      color: this.color,
       margin: EdgeInsets.symmetric(vertical: 5),
       //width: size.width * 0.85,
       width: width,
@@ -34,7 +34,7 @@ class RoundedButtonSize extends StatelessWidget {
           onPressed: press,
           child: Text(
             text,
-            style: TextStyle(color: textColor,fontSize: 15),
+            style: TextStyle(color: textColor, fontSize: 15),
           ),
         ),
       ),

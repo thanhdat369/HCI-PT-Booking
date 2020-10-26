@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/rounded_button_size.dart';
+import 'package:hci_booking_pt/screens/user_screen/profile_trainer.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 class Trainer_Search_Info extends StatelessWidget {
@@ -39,7 +40,7 @@ class Trainer_Search_Info extends StatelessWidget {
                 height: 13,
                 child: Text(
                   "\$25/month",
-                  style: TextStyle(fontSize: 10, color: Colors.yellow),
+                  style: TextStyle(fontSize: 13, color: Colors.yellow),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -55,7 +56,7 @@ class Trainer_Search_Info extends StatelessWidget {
                   style: const TextStyle(
                       color: const Color(0xffffffff),
                       fontWeight: FontWeight.w700,
-                      fontFamily: "NotoSans",
+                      fontFamily: "Noto Sans",
                       fontStyle: FontStyle.normal,
                       fontSize: 20),
                 ),
@@ -73,7 +74,14 @@ class Trainer_Search_Info extends StatelessWidget {
                     )
                   ],
                 ),
-                RoundedButtonSize(text: "View Detail", width: 200, height: 30),
+                RoundedButtonSize(
+                    text: "View Detail",
+                    width: 200,
+                    height: 30,
+                    press: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Profile_Trainer()))),
               ],
             ),
           ),

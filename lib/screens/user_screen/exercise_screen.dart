@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/components/rounded_button_size.dart';
 import 'package:hci_booking_pt/components/screen_with_background.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/user_screen_back_button.dart';
+import 'package:hci_booking_pt/screens/user_screen/user_detail_exercise_video.dart';
 import 'package:hci_booking_pt/screens/welcome/components/list_view_demo.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
@@ -62,7 +63,6 @@ class ItemExercise extends StatelessWidget {
   String title;
   String des;
   double size;
-  Function press;
   ItemExercise(
       {Key key,
       this.imagePath = "asset/images/exercises/Barbell Back Squat.png",
@@ -111,7 +111,13 @@ class ItemExercise extends StatelessWidget {
               height: 30,
               child: FlatButton(
                   padding: EdgeInsets.symmetric(vertical: 2),
-                  onPressed: press,
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                UserDetailExerciseVideoScreen()));
+                  },
                   child: Text(
                     "Detail",
                     style: TextStyle(color: MainColors.kLight, fontSize: 15),

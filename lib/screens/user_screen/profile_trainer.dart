@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hci_booking_pt/components/rounded_button.dart';
-import 'package:hci_booking_pt/components/rounded_button_size.dart';
 import 'package:hci_booking_pt/components/square_image.dart';
-import 'package:hci_booking_pt/screens/Welcome/components/list_view_demo.dart';
+import 'package:hci_booking_pt/screens/user_screen/booking_calendar.dart';
+import 'package:hci_booking_pt/screens/user_screen/checkout.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/scroll_profile_trainer.dart';
-import 'package:hci_booking_pt/screens/user_screen/profile.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 class Profile_Trainer extends StatelessWidget {
@@ -13,44 +11,51 @@ class Profile_Trainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      resizeToAvoidBottomInset:false,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: MainColors.kDark,
         leading: BackButton(color: MainColors.kLight),
-        title: Text("TRAINER PROFILE",style: TextStyle(fontSize: 19,color: MainColors.kSoftLight),),
+        title: Text(
+          "TRAINER PROFILE",
+          style: TextStyle(fontSize: 19, color: MainColors.kSoftLight),
+        ),
         centerTitle: true,
       ),
       backgroundColor: MainColors.kDark,
       body: Container(
+        width: size.width,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Divider(
-            color: Colors.white,
-            height: 10,
-            thickness: 1,
-            indent: 20,
-            endIndent: 20),
-          Trainer_Search_Info(),
-          Center(child: RoundedButton(text: "RENT",)),
-          const Divider(
-            color: Colors.white,
-            height: 10,
-            thickness: 1,
-            indent: 27,
-            endIndent: 27),
-
-          Expanded(
-          child: ScrollTrainer(),
-        )
-
-        ],
-      
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Divider(
+                color: Colors.white,
+                height: 10,
+                thickness: 1,
+                indent: 20,
+                endIndent: 20),
+            Trainer_Search_Info(),
+            Center(
+                child: RoundedButton(
+              text: "RENT",
+              press: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => BookingCalenderUser())),
+            )),
+            const Divider(
+                color: Colors.white,
+                height: 10,
+                thickness: 1,
+                indent: 27,
+                endIndent: 27),
+            Expanded(
+              child: ScrollTrainer(),
+            )
+          ],
+        ),
       ),
-      
-      ),
-      
     );
   }
 }
@@ -60,30 +65,27 @@ class Trainer_Search_Info extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.only(top: 10, bottom: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Column(
-            children: [
-              Container(
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('asset/images/background/mans.jpg'),
-                      fit: BoxFit.fill,
-                    ),
-                    border: Border.all(width: 2, color: MainColors.kLight),
-                    borderRadius: BorderRadius.circular(20)),
-              ),
-              
-            ],
+          Container(
+            width: 100,
+            height: 100,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('asset/images/background/mans.jpg'),
+                  fit: BoxFit.fill,
+                ),
+                border: Border.all(width: 2, color: MainColors.kLight),
+                borderRadius: BorderRadius.circular(20)),
           ),
           Container(
             height: 100,
-            margin: EdgeInsets.only(left: 30),
+            width: size.width * 0.85 - 110,
+            margin: EdgeInsets.only(left: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -92,18 +94,18 @@ class Trainer_Search_Info extends StatelessWidget {
                   style: const TextStyle(
                       color: const Color(0xffffffff),
                       fontWeight: FontWeight.w700,
-                      fontFamily: "NotoSans",
+                      fontFamily: "Noto Sans",
                       fontStyle: FontStyle.normal,
                       fontSize: 20),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top:5, bottom: 5),
+                  padding: const EdgeInsets.only(top: 5, bottom: 5),
                   child: Text(
                     "Body Weight, Strengthen",
                     style: const TextStyle(
                         color: MainColors.kSoftLight,
                         fontWeight: FontWeight.w700,
-                        fontFamily: "NotoSans",
+                        fontFamily: "Noto Sans",
                         fontStyle: FontStyle.normal,
                         fontSize: 12),
                   ),
@@ -122,13 +124,13 @@ class Trainer_Search_Info extends StatelessWidget {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top:5),
+                  padding: const EdgeInsets.only(top: 5),
                   child: Text(
                     "\$29/month",
                     style: const TextStyle(
                         color: Colors.yellow,
                         fontWeight: FontWeight.w700,
-                        fontFamily: "NotoSans",
+                        fontFamily: "Noto Sans",
                         fontStyle: FontStyle.normal,
                         fontSize: 12),
                   ),
@@ -159,7 +161,11 @@ class MyIconTrainer extends StatelessWidget {
       child: Row(children: [
         Container(
             margin: EdgeInsets.only(right: 20),
-            child: Icon(this.icon, color: MainColors.kSoftLight, size: 20,)),
+            child: Icon(
+              this.icon,
+              color: MainColors.kSoftLight,
+              size: 20,
+            )),
         Text(
           this.title,
           style: TextStyle(
@@ -185,25 +191,33 @@ class List_View_Hori extends StatelessWidget {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.only(right: 20),
-          child: SquareImage(radi: 0, boWi: 0,),
+          child: SquareImage(
+            radi: 0,
+            boWi: 0,
+          ),
         ),
-        
         Padding(
           padding: const EdgeInsets.only(right: 20),
-          child: SquareImage(radi: 0, boWi: 0,),
+          child: SquareImage(
+            radi: 0,
+            boWi: 0,
+          ),
         ),
-        
         Padding(
           padding: const EdgeInsets.only(right: 20),
-          child: SquareImage(radi: 0, boWi: 0,),
+          child: SquareImage(
+            radi: 0,
+            boWi: 0,
+          ),
         ),
-        
         Padding(
           padding: const EdgeInsets.only(right: 20),
-          child: SquareImage(radi: 0, boWi: 0,),
+          child: SquareImage(
+            radi: 0,
+            boWi: 0,
+          ),
         ),
       ],
     );
   }
 }
-

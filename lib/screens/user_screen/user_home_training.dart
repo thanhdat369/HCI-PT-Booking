@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hci_booking_pt/components/icon_rounded_button_size.dart';
 import 'package:hci_booking_pt/components/rounded_button_size.dart';
 import 'package:hci_booking_pt/components/square_image.dart';
+import 'package:hci_booking_pt/screens/user_screen/call_video.dart';
+import 'package:hci_booking_pt/screens/user_screen/chatting_screen.dart';
 import 'package:hci_booking_pt/screens/user_screen/confirm_end_course.dart';
 import 'package:hci_booking_pt/screens/user_screen/rounder_training_day.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
@@ -14,6 +17,7 @@ class UserHomeTraining extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Container(
         child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Info_CheckOut(),
         const Divider(
@@ -67,7 +71,7 @@ class Info_CheckOut extends StatelessWidget {
             style: const TextStyle(
                 color: const Color(0xffffffff),
                 fontWeight: FontWeight.w700,
-                fontFamily: "NotoSans",
+                fontFamily: "Noto Sans",
                 fontStyle: FontStyle.normal,
                 fontSize: 18),
           ),
@@ -90,14 +94,19 @@ class Info_CheckOut extends StatelessWidget {
                       style: const TextStyle(
                           color: const Color(0xffffffff),
                           fontWeight: FontWeight.w700,
-                          fontFamily: "NotoSans",
+                          fontFamily: "Noto Sans",
                           fontStyle: FontStyle.normal,
                           fontSize: 20),
                     ),
-                    RoundedButtonSize(
+                    IconRoundedButtonSize(
                       text: "Send Message",
                       width: 170,
                       height: 30,
+                      icon: Icons.message,
+                      press: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ChatScreen())),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 3),
@@ -106,10 +115,13 @@ class Info_CheckOut extends StatelessWidget {
                         style: const TextStyle(fontSize: 10),
                       ),
                     ),
-                    RoundedButtonSize(
+                    IconRoundedButtonSize(
                       text: "Join Meeting",
                       width: 170,
                       height: 30,
+                      icon: Icons.video_call,
+                      press: () => Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => CallVideo())),
                     ),
                   ],
                 ),
