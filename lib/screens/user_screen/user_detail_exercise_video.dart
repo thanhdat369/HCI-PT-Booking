@@ -31,9 +31,16 @@ class _UserDetailExerciseVideoScreenState
             ),
             ChewieVideoPlayer(),
             InstructionBlock(),
-            Text("Trainer point : _ _",style: TextStyle(fontSize: 20),),
-            Center(child: RoundedButtonSize(text: "Post your video",height: 50,width: 300)),
-            Center(child: RoundedButtonSize(text: "Finish exercise",height: 50,width: 300)),
+            Text(
+              "Trainer point : _ _",
+              style: TextStyle(fontSize: 20),
+            ),
+            Center(
+                child: RoundedButtonSize(
+                    text: "Post your video", height: 50, width: 300)),
+            Center(
+                child: RoundedButtonSize(
+                    text: "Finish exercise", height: 50, width: 300)),
           ],
         )));
   }
@@ -49,15 +56,16 @@ class InstructionBlock extends StatelessWidget {
         children: [
           Text(
             "Instruction",
-            style: TextStyle(fontSize: 30),
+            style: TextStyle(fontSize: 25),
           ),
           Container(
-              height: 200,
+              height: 190,
+              margin: EdgeInsets.only(top: 10, bottom: 10),
               child: ListView.builder(
                 itemCount: exercise_content.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
-                    padding: const EdgeInsets.only(bottom: 8),
+                    padding: const EdgeInsets.only(bottom: 5),
                     child: Text(exercise_content[index]),
                   );
                 },
