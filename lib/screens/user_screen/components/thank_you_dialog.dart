@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
+import '../user_screen.dart';
+
 class ThankYou {
   var _timer;
   void showThankYouDialog(BuildContext context) {
@@ -25,8 +27,14 @@ class ThankYou {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        _timer = Timer(Duration(seconds: 1), () {
+        _timer = Timer(Duration(seconds: 2), () {
           Navigator.of(context).pop();
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => UserScreen(
+                        isRented: false,
+                      )));
         });
         return dialog;
       },
