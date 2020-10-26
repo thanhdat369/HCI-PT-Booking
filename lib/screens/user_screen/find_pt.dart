@@ -19,12 +19,15 @@ class FindPT extends StatelessWidget {
           width: size.width * 0.85,
           height: 50,
         ),
-        Text(
-          "TOP RATED PERSONAL TRAINER",
-          style: const TextStyle(
-              color: const Color(0xffc3cbce),
-              fontWeight: FontWeight.w700,
-              fontFamily: "Noto Sans"),
+        Container(
+          padding: EdgeInsets.only(bottom: 8),
+          child: Text(
+            "TOP RATED PERSONAL TRAINER",
+            style: const TextStyle(
+                color: const Color(0xffc3cbce),
+                fontWeight: FontWeight.w700,
+                fontFamily: "Noto Sans"),
+          ),
         ),
         //List_View_Demo(),
         Expanded(

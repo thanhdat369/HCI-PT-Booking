@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/square_image.dart';
+import 'package:hci_booking_pt/screens/user_screen/booking_calendar.dart';
 import 'package:hci_booking_pt/screens/user_screen/checkout.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/scroll_profile_trainer.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
@@ -10,6 +11,7 @@ class Profile_Trainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -23,8 +25,9 @@ class Profile_Trainer extends StatelessWidget {
       ),
       backgroundColor: MainColors.kDark,
       body: Container(
+        width: size.width,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Divider(
                 color: Colors.white,
@@ -36,8 +39,10 @@ class Profile_Trainer extends StatelessWidget {
             Center(
                 child: RoundedButton(
               text: "RENT",
-              press: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => CheckOutScreen())),
+              press: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => BookingCalenderUser())),
             )),
             const Divider(
                 color: Colors.white,
@@ -60,29 +65,27 @@ class Trainer_Search_Info extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.only(top: 10, bottom: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Column(
-            children: [
-              Container(
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('asset/images/background/mans.jpg'),
-                      fit: BoxFit.fill,
-                    ),
-                    border: Border.all(width: 2, color: MainColors.kLight),
-                    borderRadius: BorderRadius.circular(20)),
-              ),
-            ],
+          Container(
+            width: 100,
+            height: 100,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('asset/images/background/mans.jpg'),
+                  fit: BoxFit.fill,
+                ),
+                border: Border.all(width: 2, color: MainColors.kLight),
+                borderRadius: BorderRadius.circular(20)),
           ),
           Container(
             height: 100,
-            margin: EdgeInsets.only(left: 30),
+            width: size.width * 0.85 - 110,
+            margin: EdgeInsets.only(left: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[

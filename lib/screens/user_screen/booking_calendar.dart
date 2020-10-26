@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/components/rounded_button.dart';
+import 'package:hci_booking_pt/screens/user_screen/checkout.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/datetime_chooser.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/dropdown_chosing_month.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/day_in_week.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/item_hour.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/user_screen_back_button.dart';
+import 'package:hci_booking_pt/screens/user_screen/payment_method.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -59,7 +61,10 @@ class _BookingCalenderUserState extends State<BookingCalenderUser> {
         child: SingleChildScrollView(
             child: Column(
           children: <Widget>[
-            Text("Select the weekly meeting time",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+            Text(
+              "Select the weekly meeting time",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
             DayInWeek(),
             Divider(
               color: MainColors.kMain,
@@ -106,6 +111,12 @@ class _BookingCalenderUserState extends State<BookingCalenderUser> {
                       text: "Next",
                       color: MainColors.kMain,
                       textColor: MainColors.kLight,
+                      press: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => CheckOutScreen()));
+                      },
                     ))),
             Padding(
                 padding: EdgeInsets.only(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/rounded_button_size.dart';
 import 'package:hci_booking_pt/controller/video_controller.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/user_screen_back_button.dart';
@@ -35,12 +36,13 @@ class _UserDetailExerciseVideoScreenState
               "Trainer point : _ _",
               style: TextStyle(fontSize: 20),
             ),
+            Center(child: RoundedButton(text: "Post your video")),
             Center(
-                child: RoundedButtonSize(
-                    text: "Post your video", height: 50, width: 300)),
-            Center(
-                child: RoundedButtonSize(
-                    text: "Finish exercise", height: 50, width: 300)),
+                child: RoundedButton(
+                    press: () {
+                      Navigator.pop(context);
+                    },
+                    text: "Finish exercise")),
           ],
         )));
   }

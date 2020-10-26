@@ -66,7 +66,8 @@ class Profile extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         CircleAvtAccount(
-          name: "Dat Le",
+          name: "Le Thi Dat",
+          imagePath: "asset/images/background/caller.jpg",
         ),
         Expanded(
           child: Column(

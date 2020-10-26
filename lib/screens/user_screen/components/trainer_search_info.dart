@@ -40,7 +40,7 @@ class Trainer_Search_Info extends StatelessWidget {
                 height: 13,
                 child: Text(
                   "\$25/month",
-                  style: TextStyle(fontSize: 10, color: Colors.yellow),
+                  style: TextStyle(fontSize: 13, color: Colors.yellow),
                   textAlign: TextAlign.center,
                 ),
               ),

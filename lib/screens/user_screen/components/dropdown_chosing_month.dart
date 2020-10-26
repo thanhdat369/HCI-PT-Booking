@@ -14,7 +14,7 @@ class _DropdownChosingMonthState extends State<DropdownChosingMonth> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom:20),
+      margin: EdgeInsets.only(bottom: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,7 +39,7 @@ class _DropdownChosingMonthState extends State<DropdownChosingMonth> {
                       });
                     },
                     hint: Text(
-                      "Month",
+                      "1",
                       style: TextStyle(color: MainColors.kLight),
                     ),
                     items: count.map((String user) {

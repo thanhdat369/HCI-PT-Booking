@@ -7,8 +7,21 @@ class List_View_Demo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      scrollDirection: Axis.horizontal,
       children: <Widget>[
+        Trainer_Search_Info(),
+        const Divider(
+            color: Colors.white,
+            height: 10,
+            thickness: 0,
+            indent: 20,
+            endIndent: 20),
+        Trainer_Search_Info(),
+        const Divider(
+            color: Colors.white,
+            height: 10,
+            thickness: 0,
+            indent: 20,
+            endIndent: 20),
         Trainer_Search_Info(),
         const Divider(
             color: Colors.white,
