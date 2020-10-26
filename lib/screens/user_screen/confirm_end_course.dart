@@ -30,9 +30,9 @@ class ConfirmEndCourse {
           borderRadius: BorderRadius.all(Radius.circular(20.0))),
       content: Container(
           padding: EdgeInsets.only(top: 0),
-          height: (context.size.height * 0.25 > 200)
+          height: (context.size.height * 0.25 > 230)
               ? context.size.height * 0.25
-              : 200,
+              : 230,
           width: context.size.width * 0.8,
           child: SingleChildScrollView(
               scrollDirection: Axis.vertical,

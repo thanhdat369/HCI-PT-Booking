@@ -4,13 +4,13 @@ import 'package:hci_booking_pt/components/square_image.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/user_screen_back_button.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
-class CheckOutScreen extends StatelessWidget {
-  const CheckOutScreen({Key key}) : super(key: key);
+class RentedScreen extends StatelessWidget {
+  const RentedScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return UserScreenBackButton(
-      title: "CONFIRM",
+      title: "RENTED",
       child: Column(
         children: [
           Info_CheckOut(),
@@ -44,7 +44,7 @@ class CheckOut extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           
       children: [
         const Divider(
@@ -56,7 +56,7 @@ class CheckOut extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(left: 10),
-          child: Text("Bill Detail",
+          child: Text("Trainer",
               style: const TextStyle(
                 fontWeight: FontWeight.w700,
                 fontFamily: "NotoSans",
@@ -64,35 +64,39 @@ class CheckOut extends StatelessWidget {
               ),
               textAlign: TextAlign.left),
         ),
-        Container(
-          margin: EdgeInsets.only(bottom: 25, top: 15, left: 30),
-            child: Column(
-          children: [
-            a("Personal Trainer Fee", "\$ 29"),
-          ],
-        )),
-
-        Container(
-          alignment: Alignment.bottomRight,
-          margin: EdgeInsets.only(right: 10),
-          child: Text("Total           \$29", style: TextStyle(fontWeight: FontWeight.w700,
+        
+        Padding(
+          padding: const EdgeInsets.only(left: 10, top: 7),
+          child: Text("RENTED",
+              style: const TextStyle(
+                fontWeight: FontWeight.w700,
                 fontFamily: "NotoSans",
-                fontSize: 18,),),
+                fontSize: 55,
+                color: MainColors.kMain,
+              ),
+              textAlign: TextAlign.left),
         ),
+
+//Please wait for your coach to arrange the exercises for you.
+//He will send it to you no later than 48 hours from now.
+        Padding(
+          padding: const EdgeInsets.only(left: 10, top: 7),
+          child: Text("Please wait for your coach to arrange the exercises for you. He will send it to you no later than 48 hours from now.",
+              style: const TextStyle(
+                fontWeight: FontWeight.w700,
+                fontFamily: "NotoSans",
+                fontSize: 10,
+              ),
+              textAlign: TextAlign.center),
+        ),
+
+        
 
         Container(
             margin: EdgeInsets.only(top: 100),
             alignment: Alignment.bottomCenter,
             child: RoundedButton(
-          text: 'PAYMENT',
-        )),
-
-        Container(
-            margin: EdgeInsets.only(top: 10),
-            alignment: Alignment.bottomCenter,
-            child: RoundedButton(
-          text: 'CANCEL',
-          color: MainColors.kDark,
+          text: 'GO BACK',
         )),
       ],
     ));
