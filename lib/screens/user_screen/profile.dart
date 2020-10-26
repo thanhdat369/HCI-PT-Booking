@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hci_booking_pt/components/my_circleavt.dart';
 import 'package:hci_booking_pt/components/rounded_button.dart';
+import 'package:hci_booking_pt/screens/Welcome/login.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 class CircleAvtAccount extends StatelessWidget {
@@ -95,7 +96,8 @@ class Profile extends StatelessWidget {
         RoundedButton(
           text: "Log out",
           press: () {
-            Navigator.pop(context);
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => LoginScreen()));
           },
         )
       ],

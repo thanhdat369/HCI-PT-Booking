@@ -111,9 +111,11 @@ class CheckOut extends StatelessWidget {
             margin: EdgeInsets.only(top: 10),
             alignment: Alignment.bottomCenter,
             child: RoundedButton(
-              text: 'CANCEL',
-              color: MainColors.kDark,
-            )),
+                text: 'CANCEL',
+                color: MainColors.kDark,
+                press: () {
+                  Navigator.pop(context);
+                })),
       ],
     ));
   }

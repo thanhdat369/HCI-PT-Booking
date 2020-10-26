@@ -86,10 +86,12 @@ class _PaymentMethodState extends State<PaymentMethod> {
               child: Align(
                   alignment: Alignment.bottomCenter,
                   child: RoundedButton(
-                    text: "Cancel",
-                    color: MainColors.kSoftLight,
-                    textColor: MainColors.kDark,
-                  ))),
+                      text: "Cancel",
+                      color: MainColors.kSoftLight,
+                      textColor: MainColors.kDark,
+                      press: () {
+                        Navigator.pop(context);
+                      }))),
         ],
       ),
     );
