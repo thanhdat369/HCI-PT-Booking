@@ -28,6 +28,7 @@ dependencies:
   font_awesome_flutter: ^8.10.0
   video_player: 0.10.11+1
   chewie: ^0.9.10
+  datetime_picker_formfield: ^1.0.0
 
   smooth_star_rating: ^1.1.1
 

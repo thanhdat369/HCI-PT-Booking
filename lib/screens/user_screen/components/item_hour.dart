@@ -20,17 +20,20 @@ class _ItemHourState extends State<ItemHour> {
     var text_style = TextStyle(color: MainColors.kSoftLight, fontSize: 16);
     if (this.isClick) {
       color_background = MainColors.kMain;
-      text_style = TextStyle(color: MainColors.kLight,fontWeight: FontWeight.w900, fontSize: 16);
+      text_style = TextStyle(
+          color: MainColors.kLight, fontWeight: FontWeight.w900, fontSize: 16);
     }
     if (this.widget.isBook) {
-      color_background = MainColors.kLight;
-      text_style = TextStyle(color: MainColors.kSoftLight, fontSize: 16);
+      color_background = MainColors.kSoftLight;
+      text_style = TextStyle(color: MainColors.kDark, fontSize: 16);
     }
 
     return GestureDetector(
       onTap: () {
         setState(() {
-          this.isClick = !isClick;
+          if (!widget.isBook) {
+            this.isClick = !isClick;
+          }
         });
       },
       child: Container(
