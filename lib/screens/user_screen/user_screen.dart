@@ -3,6 +3,7 @@ import 'package:hci_booking_pt/screens/user_screen/components/container_rounded.
 import 'package:hci_booking_pt/screens/user_screen/find_pt.dart';
 import 'package:hci_booking_pt/screens/user_screen/profile.dart';
 import 'package:hci_booking_pt/screens/user_screen/user_home.dart';
+import 'package:hci_booking_pt/screens/user_screen/user_home_training.dart';
 import 'package:hci_booking_pt/screens/user_screen/user_notification.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,7 +15,7 @@ class UserScreenItemDTO {
   UserScreenItemDTO(this.title, this.screen);
 }
 
-class UserScreen extends StatefulWidget {
+class  UserScreen extends StatefulWidget {
   UserScreen({Key key}) : super(key: key);
   @override
   _UserScreenState createState() => _UserScreenState();
@@ -26,7 +27,7 @@ class _UserScreenState extends State<UserScreen> {
   @override
   Widget build(BuildContext context) {
     var _tabs = [
-      UserScreenItemDTO("TRAINING", UserHome(
+      UserScreenItemDTO("TRAINING", UserHomeTraining(
         press: () {
           setState(() {
             _currentindex = 1;

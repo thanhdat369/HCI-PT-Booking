@@ -109,13 +109,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Already have an account?",
+                  "Already have an account? ",
                   style: TextStyle(height: 2, fontSize: 18),
                 ),
                 GestureDetector(
-                  child: Text(" Login",
+                  child: Text("Login",
                       style: TextStyle(
-                          color: MainColors.kMain, fontSize: 20, height: 2)),
+                          fontWeight: FontWeight.w700,
+                          color: MainColors.kMain,
+                          fontSize: 20,
+                          height: 2,
+                          decoration: TextDecoration.underline)),
                   onTap: () {
                     Navigator.pop(context);
                   },
