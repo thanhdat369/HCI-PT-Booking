@@ -24,7 +24,7 @@ class FindPT extends StatelessWidget {
           style: const TextStyle(
               color: const Color(0xffc3cbce),
               fontWeight: FontWeight.w700,
-              fontFamily: "NotoSans"),
+              fontFamily: "Noto Sans"),
         ),
         //List_View_Demo(),
         Expanded(

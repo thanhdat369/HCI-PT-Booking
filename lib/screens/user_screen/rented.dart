@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/square_image.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/user_screen_back_button.dart';
+import 'package:hci_booking_pt/screens/user_screen/user_screen.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 class RentedScreen extends StatelessWidget {
@@ -9,7 +10,18 @@ class RentedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return UserScreenBackButton(
+    return
+        // new WillPopScope(
+        //     onWillPop: () async {
+        //       return Navigator.pushReplacement(
+        //           context,
+        //           MaterialPageRoute(
+        //               builder: (context) => UserScreen(
+        //                     isRented: true,
+        //                   )));
+        //     },
+        //     child:
+        UserScreenBackButton(
       title: "RENTED",
       child: Column(
         children: [
@@ -29,12 +41,26 @@ class CheckOut extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Container(width: 240, child: Text(titile, style: const TextStyle(fontSize: 15,fontWeight: FontWeight.w700,
-              fontFamily: "NotoSans",),)),
+            Container(
+                width: 240,
+                child: Text(
+                  titile,
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: "Noto Sans",
+                  ),
+                )),
             Container(
               width: 40,
-              child: Text(price, style: const TextStyle(fontSize: 15,fontWeight: FontWeight.w700,
-              fontFamily: "NotoSans",),),
+              child: Text(
+                price,
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: "Noto Sans",
+                ),
+              ),
             )
           ],
         ));
@@ -44,8 +70,7 @@ class CheckOut extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const Divider(
           color: Colors.white,
@@ -59,18 +84,18 @@ class CheckOut extends StatelessWidget {
           child: Text("Trainer",
               style: const TextStyle(
                 fontWeight: FontWeight.w700,
-                fontFamily: "NotoSans",
+                fontFamily: "Noto Sans",
                 fontSize: 18,
               ),
               textAlign: TextAlign.left),
         ),
-        
+
         Padding(
           padding: const EdgeInsets.only(left: 10, top: 7),
           child: Text("RENTED",
               style: const TextStyle(
                 fontWeight: FontWeight.w700,
-                fontFamily: "NotoSans",
+                fontFamily: "Noto Sans",
                 fontSize: 55,
                 color: MainColors.kMain,
               ),
@@ -81,23 +106,25 @@ class CheckOut extends StatelessWidget {
 //He will send it to you no later than 48 hours from now.
         Padding(
           padding: const EdgeInsets.only(left: 10, top: 7),
-          child: Text("Please wait for your coach to arrange the exercises for you. He will send it to you no later than 48 hours from now.",
+          child: Text(
+              "Please wait for your coach to arrange the exercises for you. He will send it to you no later than 48 hours from now.",
               style: const TextStyle(
                 fontWeight: FontWeight.w700,
-                fontFamily: "NotoSans",
+                fontFamily: "Noto Sans",
                 fontSize: 10,
               ),
               textAlign: TextAlign.center),
         ),
 
-        
-
         Container(
             margin: EdgeInsets.only(top: 100),
             alignment: Alignment.bottomCenter,
             child: RoundedButton(
-          text: 'GO BACK',
-        )),
+              text: 'GO BACK',
+              press: () {
+                Navigator.pop(context);
+              },
+            )),
       ],
     ));
   }
@@ -114,20 +141,22 @@ class Info_CheckOut extends StatelessWidget {
           padding: EdgeInsets.only(left: 10),
           alignment: Alignment.topLeft,
           child: Text(
-                      "Your contact with",
-                      style: const TextStyle(
-                          color: const Color(0xffffffff),
-                          fontWeight: FontWeight.w700,
-                          fontFamily: "NotoSans",
-                          fontStyle: FontStyle.normal,
-                          fontSize: 18),
-                    ),
+            "Your contact with",
+            style: const TextStyle(
+                color: const Color(0xffffffff),
+                fontWeight: FontWeight.w700,
+                fontFamily: "Noto Sans",
+                fontStyle: FontStyle.normal,
+                fontSize: 18),
+          ),
         ),
         Container(
           padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 7),
           child: Row(
             children: [
-              SquareImage(size: 110,),
+              SquareImage(
+                size: 110,
+              ),
               Container(
                 height: 110,
                 margin: EdgeInsets.only(left: 15),
@@ -139,34 +168,35 @@ class Info_CheckOut extends StatelessWidget {
                       style: const TextStyle(
                           color: const Color(0xffffffff),
                           fontWeight: FontWeight.w700,
-                          fontFamily: "NotoSans",
+                          fontFamily: "Noto Sans",
                           fontStyle: FontStyle.normal,
                           fontSize: 20),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 4,bottom: 3),
+                      padding: const EdgeInsets.only(top: 4, bottom: 3),
                       child: Text(
                         "October  30,  2020",
                         style: const TextStyle(
                             color: const Color(0xffc3cbce),
                             fontWeight: FontWeight.w700,
-                            fontFamily: "NotoSans",
+                            fontFamily: "Noto Sans",
                             fontStyle: FontStyle.normal,
                             fontSize: 15),
                       ),
                     ),
-
                     Padding(
                       padding: const EdgeInsets.only(bottom: 3),
-                      child: Text("                     -", style: const TextStyle(),),
+                      child: Text(
+                        "                     -",
+                        style: const TextStyle(),
+                      ),
                     ),
-
                     Text(
                       "November 30, 2020",
                       style: const TextStyle(
                           color: const Color(0xffc3cbce),
                           fontWeight: FontWeight.w700,
-                          fontFamily: "NotoSans",
+                          fontFamily: "Noto Sans",
                           fontStyle: FontStyle.normal,
                           fontSize: 15),
                     ),

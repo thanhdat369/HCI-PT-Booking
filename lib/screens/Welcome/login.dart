@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
       resizeToAvoidBottomInset: false,
       backgroundColor: MainColors.kDark,
       body: ScreenWithBackground(
-        pathBackground: "asset/images/background/1.jpg",
+        pathBackground: "asset/images/background/2.png",
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,

@@ -5,20 +5,17 @@ class UserWeek extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      scrollDirection: Axis.vertical,
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.only(left: 10),
-          child: Text("Week 1",
-              style: const TextStyle(
-                fontWeight: FontWeight.w700,
-                fontFamily: "NotoSans",
-                fontSize: 18,
-              ),
-              textAlign: TextAlign.left),
-        ),
-      ]
-    );
+    return ListView(scrollDirection: Axis.vertical, children: <Widget>[
+      Padding(
+        padding: const EdgeInsets.only(left: 10),
+        child: Text("Week 1",
+            style: const TextStyle(
+              fontWeight: FontWeight.w700,
+              fontFamily: "Noto Sans",
+              fontSize: 18,
+            ),
+            textAlign: TextAlign.left),
+      ),
+    ]);
   }
 }

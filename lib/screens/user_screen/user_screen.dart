@@ -15,8 +15,9 @@ class UserScreenItemDTO {
   UserScreenItemDTO(this.title, this.screen);
 }
 
-class  UserScreen extends StatefulWidget {
-  UserScreen({Key key}) : super(key: key);
+class UserScreen extends StatefulWidget {
+  final bool isRented;
+  UserScreen({Key key, this.isRented = false}) : super(key: key);
   @override
   _UserScreenState createState() => _UserScreenState();
 }
@@ -26,18 +27,25 @@ class _UserScreenState extends State<UserScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var _tabs = [
-      UserScreenItemDTO("TRAINING", UserHomeTraining(
-        press: () {
-          setState(() {
-            _currentindex = 1;
-          });
-        },
-      )),
-      UserScreenItemDTO("FIND YOUR TRAINER", FindPT()),
-      UserScreenItemDTO("NOTIFICATION", UserNotification()),
-      UserScreenItemDTO("PROFILE", Profile()),
-    ];
+    var _tabs = this.widget.isRented
+        ? [
+            UserScreenItemDTO("TRAINING", UserHomeTraining()),
+            UserScreenItemDTO("FIND YOUR TRAINER", FindPT()),
+            UserScreenItemDTO("NOTIFICATION", UserNotification()),
+            UserScreenItemDTO("PROFILE", Profile()),
+          ]
+        : [
+            UserScreenItemDTO("TRAINING", UserHome(
+              press: () {
+                setState(() {
+                  _currentindex = 1;
+                });
+              },
+            )),
+            UserScreenItemDTO("FIND YOUR TRAINER", FindPT()),
+            UserScreenItemDTO("NOTIFICATION", UserNotification()),
+            UserScreenItemDTO("PROFILE", Profile()),
+          ];
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
