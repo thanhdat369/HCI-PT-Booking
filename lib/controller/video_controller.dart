@@ -1,56 +1,68 @@
 import 'package:chewie/chewie.dart';
+import 'package:chewie/src/chewie_player.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hci_booking_pt/theme/colors.dart';
 import 'package:video_player/video_player.dart';
 
-class VideoPlayerScreen extends StatefulWidget {
-  VideoPlayerScreen({Key key}) : super(key: key);
+class ChewieVideoPlayer extends StatefulWidget {
+  ChewieVideoPlayer({this.title = 'Chewie Demo'});
+
+  final String title;
 
   @override
-  _VideoPlayerScreenState createState() => _VideoPlayerScreenState();
+  State<StatefulWidget> createState() {
+    return _ChewieVideoPlayerState();
+  }
 }
 
-class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
-  VideoPlayerController _controller;
-  // ChewieController
-  ChewieController chewieController;
+class _ChewieVideoPlayerState extends State<ChewieVideoPlayer> {
+  TargetPlatform _platform;
+  VideoPlayerController _videoController;
+  ChewieController _chewieController;
 
   @override
   void initState() {
-    // Create an store the VideoPlayerController. The VideoPlayerController
-    // offers several different constructors to play videos from assets, files,
-    // or the internet.
-    // _controller = VideoPlayerController.network(
-    //   'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4',
-    // );
-    _controller =
-        VideoPlayerController.asset("asset/videos/exercises/squat.mp4");
-    // _initializeVideoPlayerFuture = _controller.initialize();
-
-    // _controller.setLooping(false);
-    // _controller.setVolume(1.0);
-    chewieController = ChewieController(
-      videoPlayerController: _controller,
-      aspectRatio: 16 / 9,
-      autoPlay: false,
-      looping: true,
-    );
     super.initState();
+    _videoController =
+        VideoPlayerController.asset('asset/videos/exercises/squat.mp4');
+    // VideoPlayerController.network("https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4");
+    _chewieController = ChewieController(
+      videoPlayerController: _videoController,
+      aspectRatio: 16 / 9,
+      autoPlay: true,
+      looping: true,
+      // Try playing around with some of these other options:
+
+      showControls: true,
+      materialProgressColors: ChewieProgressColors(
+        
+        playedColor: MainColors.kMain,
+        handleColor: MainColors.kMain,
+        backgroundColor:MainColors.kMain,
+        bufferedColor: MainColors.kSoftDark,
+
+      ),
+      
+      placeholder: Container(
+        color: MainColors.kSoftDark,
+      ),
+      autoInitialize: true,
+    );
   }
 
   @override
   void dispose() {
-    // Ensure disposing of the VideoPlayerController to free up resources.
-    _controller.dispose();
-    chewieController.dispose();
+    _videoController.dispose();
+    _chewieController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.black,
+    return Center(
       child: Chewie(
-        controller: this.chewieController,
+        controller: _chewieController,
       ),
     );
   }
