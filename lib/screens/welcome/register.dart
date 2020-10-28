@@ -101,8 +101,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ],
                 ),
                 RoundedButton(
-                  text: "REGISTER",
-                ),
+                    text: "REGISTER",
+                    press: () {
+                      Navigator.pop(context);
+                    }),
               ],
             ),
             Row(
