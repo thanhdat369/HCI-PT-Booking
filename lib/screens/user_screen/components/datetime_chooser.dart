@@ -4,6 +4,10 @@ import 'package:hci_booking_pt/theme/colors.dart';
 import 'package:intl/intl.dart';
 
 class DatePickerDemo extends StatefulWidget {
+  final Function(DateTime picked) notifyParent;
+
+  const DatePickerDemo({Key key, this.notifyParent}) : super(key: key);
+
   @override
   _DatePickerDemoState createState() => _DatePickerDemoState();
 }
@@ -65,10 +69,11 @@ class _DatePickerDemoState extends State<DatePickerDemo> {
             child: CupertinoDatePicker(
               mode: CupertinoDatePickerMode.date,
               onDateTimeChanged: (picked) {
-                if (picked != null && picked != selectedDate)
+                if (picked != null && picked != selectedDate) {
                   setState(() {
                     selectedDate = picked;
                   });
+                }
               },
               initialDateTime: selectedDate,
               minimumYear: 2000,
@@ -103,6 +108,7 @@ class _DatePickerDemoState extends State<DatePickerDemo> {
     );
     if (picked != null && picked != selectedDate)
       setState(() {
+        widget.notifyParent(picked);
         selectedDate = picked;
       });
   }

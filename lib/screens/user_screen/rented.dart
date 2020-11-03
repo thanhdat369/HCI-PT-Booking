@@ -5,6 +5,8 @@ import 'package:hci_booking_pt/screens/user_screen/components/user_screen_back_b
 import 'package:hci_booking_pt/screens/user_screen/user_screen.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
+import '../../trainer.dart';
+
 class RentedScreen extends StatelessWidget {
   const RentedScreen({Key key}) : super(key: key);
 
@@ -164,7 +166,7 @@ class Info_CheckOut extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "Micheal  Jordan",
+                      Trainer.name,
                       style: const TextStyle(
                           color: const Color(0xffffffff),
                           fontWeight: FontWeight.w700,
@@ -175,7 +177,7 @@ class Info_CheckOut extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 4, bottom: 3),
                       child: Text(
-                        "October  30,  2020",
+                        Trainer.startDate,
                         style: const TextStyle(
                             color: const Color(0xffc3cbce),
                             fontWeight: FontWeight.w700,
@@ -192,7 +194,7 @@ class Info_CheckOut extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "November 30, 2020",
+                      Trainer.dueDate,
                       style: const TextStyle(
                           color: const Color(0xffc3cbce),
                           fontWeight: FontWeight.w700,

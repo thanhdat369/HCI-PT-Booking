@@ -8,6 +8,8 @@ import 'package:hci_booking_pt/screens/user_screen/confirm_end_course.dart';
 import 'package:hci_booking_pt/screens/user_screen/rounder_training_day.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
+import '../../trainer.dart';
+
 class UserHomeTraining extends StatelessWidget {
   final Function press;
   const UserHomeTraining({Key key, this.press}) : super(key: key);
@@ -37,7 +39,7 @@ class UserHomeTraining extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                "This course will end a 20 November, 2019",
+                "This course will end a " + Trainer.dueDate,
                 style: TextStyle(
                     fontSize: 10,
                     fontWeight: FontWeight.w700,
@@ -90,7 +92,7 @@ class Info_CheckOut extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "Micheal  Jordan",
+                      Trainer.name,
                       style: const TextStyle(
                           color: const Color(0xffffffff),
                           fontWeight: FontWeight.w700,

@@ -17,15 +17,15 @@ class _ItemHourState extends State<ItemHour> {
   @override
   Widget build(BuildContext context) {
     var color_background = null;
-    var text_style = TextStyle(color: MainColors.kSoftLight, fontSize: 16);
+    var text_style = TextStyle(color: MainColors.kSoftLight, fontSize: 14);
     if (this.isClick) {
       color_background = MainColors.kMain;
       text_style = TextStyle(
-          color: MainColors.kLight, fontWeight: FontWeight.w900, fontSize: 16);
+          color: MainColors.kLight, fontWeight: FontWeight.w900, fontSize: 14);
     }
     if (this.widget.isBook) {
       color_background = MainColors.kSoftLight;
-      text_style = TextStyle(color: MainColors.kDark, fontSize: 16);
+      text_style = TextStyle(color: MainColors.kDark, fontSize: 14);
     }
 
     return GestureDetector(

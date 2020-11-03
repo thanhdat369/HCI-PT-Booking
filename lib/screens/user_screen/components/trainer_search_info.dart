@@ -3,24 +3,45 @@ import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/rounded_button_size.dart';
 import 'package:hci_booking_pt/screens/user_screen/profile_trainer.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
+import 'package:hci_booking_pt/trainer.dart';
 
 class Trainer_Search_Info extends StatelessWidget {
-  const Trainer_Search_Info({Key key}) : super(key: key);
+  final int price;
+
+  final String name;
+
+  final String expertise;
+
+  final int avatarNumber;
+
+  final int commentCount;
+  const Trainer_Search_Info(
+      {Key key,
+      this.price = 25,
+      this.name = "Michael Jordan",
+      this.expertise = "Body Weight, Strengthen",
+      this.avatarNumber = 1,
+      this.commentCount = 6283})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(vertical: 5),
+      height: 150,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Column(
             children: [
               Container(
-                width: 100,
-                height: 100,
+                width: 120,
+                height: 120,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('asset/images/background/mans.jpg'),
+                      image: AssetImage('asset/images/trainerAvatar/' +
+                          avatarNumber.toString() +
+                          '.jpg'),
                       fit: BoxFit.fill,
                     ),
                     border: Border.all(width: 2, color: MainColors.kLight),
@@ -36,10 +57,11 @@ class Trainer_Search_Info extends StatelessWidget {
                 // )
               ),
               Container(
+                padding: EdgeInsets.only(top: 5),
                 width: 90,
-                height: 13,
+                height: 20,
                 child: Text(
-                  "\$25/month",
+                  "\$" + price.toString() + "/month",
                   style: TextStyle(fontSize: 13, color: Colors.yellow),
                   textAlign: TextAlign.center,
                 ),
@@ -47,12 +69,14 @@ class Trainer_Search_Info extends StatelessWidget {
             ],
           ),
           Container(
+            height: 130,
             margin: EdgeInsets.only(left: 30),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
-                  "Micheal  Jordan",
+                  name,
                   style: const TextStyle(
                       color: const Color(0xffffffff),
                       fontWeight: FontWeight.w700,
@@ -60,7 +84,12 @@ class Trainer_Search_Info extends StatelessWidget {
                       fontStyle: FontStyle.normal,
                       fontSize: 20),
                 ),
-                Text("", style: TextStyle(fontSize: 5)),
+                Text(expertise,
+                    style: const TextStyle(
+                        color: MainColors.kLight,
+                        fontFamily: "Noto Sans",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 12)),
                 Row(
                   children: [
                     Icon(Icons.star, color: MainColors.kMain, size: 15),
@@ -69,7 +98,7 @@ class Trainer_Search_Info extends StatelessWidget {
                     Icon(Icons.star, color: MainColors.kMain, size: 15),
                     Icon(Icons.star, color: MainColors.kMain, size: 15),
                     Text(
-                      "(6923)",
+                      '(' + commentCount.toString() + ')',
                       style: TextStyle(fontSize: 12, color: MainColors.kMain),
                     )
                   ],
@@ -78,15 +107,26 @@ class Trainer_Search_Info extends StatelessWidget {
                     text: "View Detail",
                     width: 200,
                     height: 30,
-                    press: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Profile_Trainer()))),
+                    press: () {
+                      setInfo();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Profile_Trainer()));
+                    })
               ],
             ),
           ),
         ],
       ),
     );
+  }
+
+  setInfo() {
+    Trainer.avatarNumber = avatarNumber;
+    Trainer.price = price;
+    Trainer.expertise = expertise;
+    Trainer.commentCount = commentCount;
+    Trainer.name = name;
   }
 }
