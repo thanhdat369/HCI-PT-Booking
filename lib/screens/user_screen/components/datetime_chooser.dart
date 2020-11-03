@@ -94,7 +94,7 @@ class _DatePickerDemoState extends State<DatePickerDemo> {
       selectableDayPredicate: _decideWhichDayToEnable,
       helpText: 'Select booking date',
       cancelText: 'Not now',
-      confirmText: 'Book',
+      confirmText: 'Choose',
       errorFormatText: 'Enter valid date',
       errorInvalidText: 'Enter date in valid range',
       fieldLabelText: 'Booking date',
