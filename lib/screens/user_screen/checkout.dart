@@ -120,7 +120,8 @@ class CheckOut extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: RoundedButton(
                 text: 'CANCEL',
-                color: MainColors.kDark,
+                color: MainColors.kSoftLight,
+                textColor: MainColors.kDark,
                 press: () {
                   Navigator.pop(context);
                 })),

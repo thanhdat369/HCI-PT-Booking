@@ -5,6 +5,8 @@ import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/rounded_input.dart';
 import 'package:hci_booking_pt/components/rounded_password.dart';
 import 'package:hci_booking_pt/components/screen_with_background.dart';
+import 'package:hci_booking_pt/screens/user_screen/Verification.dart';
+import 'package:hci_booking_pt/screens/user_screen/components/yes_no_dialog.dart';
 import 'package:hci_booking_pt/screens/user_screen/user_screen.dart';
 import 'package:hci_booking_pt/screens/welcome/components/form_title.dart';
 import 'package:hci_booking_pt/screens/welcome/register.dart';
@@ -53,13 +55,19 @@ class _LoginScreenState extends State<LoginScreen> {
             Column(children: [
               Padding(
                   padding: EdgeInsets.symmetric(vertical: 10),
-                  child: Text("Forgot Password ?",
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontFamily: "Product Sans",
-                          fontStyle: FontStyle.normal,
-                          fontSize: 13),
-                      textAlign: TextAlign.center)),
+                  child: InkWell(
+                    onTap: () {
+                      YesNoDialog("Reset Password?", Verification())
+                          .showAlertDialog(context);
+                    },
+                    child: Text("Forgot Password ?",
+                        style: const TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontFamily: "Product Sans",
+                            fontStyle: FontStyle.normal,
+                            fontSize: 13),
+                        textAlign: TextAlign.center),
+                  )),
               Container(
                 padding: EdgeInsets.only(top: 10),
                 child: Text("OR",

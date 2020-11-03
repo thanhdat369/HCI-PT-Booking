@@ -135,6 +135,7 @@ class _BookingCalenderUserState extends State<BookingCalenderUser> {
                       color: MainColors.kMain,
                       textColor: MainColors.kLight,
                       press: () {
+                        Trainer.totalPrice = totalPrice;
                         Navigator.push(
                             context,
                             MaterialPageRoute(

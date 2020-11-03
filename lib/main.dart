@@ -24,12 +24,7 @@ class MyApp extends StatelessWidget {
             fontFamily: "Product Sans",
           ),
           primarySwatch: Colors.red),
-      home: //LoginScreen(),
-          //CheckOutScreen(),
-          //Profile_Trainer(),
-          //ScrollTrainer(),
-          //RoundedTrainingDay(),
-          LoginScreen(),
+      home: LoginScreen(),
     );
 
     //Dimniss auto focus
