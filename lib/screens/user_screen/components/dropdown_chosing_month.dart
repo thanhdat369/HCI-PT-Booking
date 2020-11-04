@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 class DropdownChosingMonth extends StatefulWidget {
-  DropdownChosingMonth({Key key}) : super(key: key);
+  final Function(String month) notifyParent;
+
+  DropdownChosingMonth({Key key, @required this.notifyParent})
+      : super(key: key);
 
   @override
   _DropdownChosingMonthState createState() => _DropdownChosingMonthState();
@@ -34,6 +37,7 @@ class _DropdownChosingMonthState extends State<DropdownChosingMonth> {
                     style: TextStyle(color: Colors.black),
                     value: selectedMonth,
                     onChanged: (String) {
+                      widget.notifyParent(String);
                       setState(() {
                         selectedMonth = String;
                       });

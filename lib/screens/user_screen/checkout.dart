@@ -7,8 +7,12 @@ import 'package:hci_booking_pt/screens/user_screen/pay_with_momo.dart';
 import 'package:hci_booking_pt/screens/user_screen/payment_method.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
+import '../../trainer.dart';
+
 class CheckOutScreen extends StatelessWidget {
-  const CheckOutScreen({Key key}) : super(key: key);
+  final int totalPrice;
+
+  const CheckOutScreen({Key key, this.totalPrice}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +21,9 @@ class CheckOutScreen extends StatelessWidget {
       child: Column(
         children: [
           Info_CheckOut(),
-          CheckOut(),
+          CheckOut(
+            totalPrice: totalPrice,
+          ),
         ],
       ),
     );
@@ -25,7 +31,9 @@ class CheckOutScreen extends StatelessWidget {
 }
 
 class CheckOut extends StatelessWidget {
-  const CheckOut({Key key}) : super(key: key);
+  final int totalPrice;
+
+  const CheckOut({Key key, this.totalPrice}) : super(key: key);
   Widget a(String titile, String price) {
     return Container(
         margin: EdgeInsets.only(top: 20, bottom: 20),
@@ -85,12 +93,12 @@ class CheckOut extends StatelessWidget {
         Container(
             alignment: Alignment.centerRight,
             width: size.width * 0.85,
-            child: a("Personal Trainer Fee", "\$29")),
+            child: a("Personal Trainer Fee", "\$" + totalPrice.toString())),
         Container(
           alignment: Alignment.centerRight,
           margin: EdgeInsets.only(right: 10),
           child: Text(
-            "Total           \$29",
+            "Total           \$" + totalPrice.toString(),
             style: TextStyle(
               fontWeight: FontWeight.w700,
               fontFamily: "Noto Sans",
@@ -112,7 +120,8 @@ class CheckOut extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: RoundedButton(
                 text: 'CANCEL',
-                color: MainColors.kDark,
+                color: MainColors.kSoftLight,
+                textColor: MainColors.kDark,
                 press: () {
                   Navigator.pop(context);
                 })),
@@ -146,6 +155,7 @@ class Info_CheckOut extends StatelessWidget {
           child: Row(
             children: [
               SquareImage(
+                avatarNumber: Trainer.avatarNumber,
                 size: 110,
               ),
               Container(
@@ -155,7 +165,7 @@ class Info_CheckOut extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "Micheal  Jordan",
+                      Trainer.name,
                       style: const TextStyle(
                           color: const Color(0xffffffff),
                           fontWeight: FontWeight.w700,
@@ -166,7 +176,7 @@ class Info_CheckOut extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 4, bottom: 3),
                       child: Text(
-                        "October  30,  2020",
+                        Trainer.startDate,
                         style: const TextStyle(
                             color: const Color(0xffc3cbce),
                             fontWeight: FontWeight.w700,
@@ -183,7 +193,7 @@ class Info_CheckOut extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "November 30, 2020",
+                      Trainer.dueDate,
                       style: const TextStyle(
                           color: const Color(0xffc3cbce),
                           fontWeight: FontWeight.w700,

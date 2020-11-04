@@ -3,6 +3,7 @@ import 'package:hci_booking_pt/components/image_rounded_button.dart';
 import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/screens/user_screen/pay_with_momo.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
+import 'package:hci_booking_pt/trainer.dart';
 
 import 'components/user_screen_back_button.dart';
 
@@ -41,7 +42,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
               )),
           Padding(
               padding: EdgeInsets.only(top: 30, bottom: 30),
-              child: Text("\$29",
+              child: Text("\$" + Trainer.totalPrice.toString(),
                   style: TextStyle(
                       fontSize: 50,
                       fontWeight: FontWeight.bold,

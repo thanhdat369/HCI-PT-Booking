@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/components/rounded_input_search.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/thank_you_dialog.dart';
+import 'package:hci_booking_pt/screens/user_screen/user_screen.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
@@ -11,7 +12,11 @@ class ReviewCourse {
       color: MainColors.kMain,
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pop();
-        ThankYou().showThankYouDialog(context);
+        TextDialog(
+            "ThankYou",
+            UserScreen(
+              isRented: false,
+            )).showThankYouDialog(context);
       },
     );
 

@@ -8,6 +8,8 @@ import 'package:hci_booking_pt/screens/user_screen/confirm_end_course.dart';
 import 'package:hci_booking_pt/screens/user_screen/rounder_training_day.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
+import '../../trainer.dart';
+
 class UserHomeTraining extends StatelessWidget {
   final Function press;
   const UserHomeTraining({Key key, this.press}) : super(key: key);
@@ -22,7 +24,7 @@ class UserHomeTraining extends StatelessWidget {
         Info_CheckOut(),
         const Divider(
           color: Colors.white,
-          height: 10,
+          height: 1,
           thickness: 1,
           indent: 10,
           endIndent: 10,
@@ -34,14 +36,14 @@ class UserHomeTraining extends StatelessWidget {
         Container(
           margin: EdgeInsets.only(top: 0.5),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "This course will end a 20 November, 2019",
+                "This course will end a " + Trainer.dueDate,
                 style: TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w700,
-                    color: MainColors.kSoftLight),
+                    fontSize: 13,
+                    color: MainColors.kSoftLight,
+                    fontFamily: "Noto Sans"),
               ),
               RoundedButtonSize(
                   text: "End Now",
@@ -77,7 +79,7 @@ class Info_CheckOut extends StatelessWidget {
           ),
         ),
         Container(
-          padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 7),
+          padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 0),
           child: Row(
             children: [
               SquareImage(
@@ -90,7 +92,7 @@ class Info_CheckOut extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "Micheal  Jordan",
+                      Trainer.name,
                       style: const TextStyle(
                           color: const Color(0xffffffff),
                           fontWeight: FontWeight.w700,
@@ -112,7 +114,7 @@ class Info_CheckOut extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 3),
                       child: Text(
                         "Meeting will start in 30 minutes",
-                        style: const TextStyle(fontSize: 10),
+                        style: const TextStyle(fontSize: 12),
                       ),
                     ),
                     IconRoundedButtonSize(
@@ -142,12 +144,15 @@ class Info_Exercise extends StatelessWidget {
     return ListView(
       scrollDirection: Axis.vertical,
       children: [
-        Text(
-          "Week 1",
-          style: TextStyle(
-              fontSize: 17,
-              fontWeight: FontWeight.w700,
-              color: MainColors.kSoftLight),
+        Container(
+          padding: EdgeInsets.symmetric(vertical: 2),
+          child: Text(
+            "Week 1",
+            style: TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.w700,
+                color: MainColors.kSoftLight),
+          ),
         ),
         RoundedTrainingDay(
           is_finish: true,
@@ -160,12 +165,15 @@ class Info_Exercise extends StatelessWidget {
           title: "Day 3 - Upper Body Workout",
           num_of_excercise: 5,
         ),
-        Text(
-          "Week 2",
-          style: TextStyle(
-              fontSize: 17,
-              fontWeight: FontWeight.w700,
-              color: MainColors.kSoftLight),
+        Container(
+          padding: EdgeInsets.symmetric(vertical: 2),
+          child: Text(
+            "Week 2",
+            style: TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.w700,
+                color: MainColors.kSoftLight),
+          ),
         ),
         RoundedTrainingDay(
           title: "Day 4 - Full Leg Workout",
@@ -179,12 +187,15 @@ class Info_Exercise extends StatelessWidget {
           title: "Day 6 - Upper Body Workout",
           num_of_excercise: 5,
         ),
-        Text(
-          "Week 3",
-          style: TextStyle(
-              fontSize: 17,
-              fontWeight: FontWeight.w700,
-              color: MainColors.kSoftLight),
+        Container(
+          padding: EdgeInsets.symmetric(vertical: 2),
+          child: Text(
+            "Week 3",
+            style: TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.w700,
+                color: MainColors.kSoftLight),
+          ),
         ),
         RoundedTrainingDay(
           title: "Day 7 - Full Leg Workout",
@@ -198,12 +209,15 @@ class Info_Exercise extends StatelessWidget {
           title: "Day 9 - Upper Body Workout",
           num_of_excercise: 5,
         ),
-        Text(
-          "Week 4",
-          style: TextStyle(
-              fontSize: 17,
-              fontWeight: FontWeight.w700,
-              color: MainColors.kSoftLight),
+        Container(
+          padding: EdgeInsets.symmetric(vertical: 2),
+          child: Text(
+            "Week 4",
+            style: TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.w700,
+                color: MainColors.kSoftLight),
+          ),
         ),
         RoundedTrainingDay(
           title: "Day 10 - Full Leg Workout",

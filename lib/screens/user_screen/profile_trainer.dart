@@ -6,8 +6,12 @@ import 'package:hci_booking_pt/screens/user_screen/checkout.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/scroll_profile_trainer.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
+import '../../trainer.dart';
+
 class Profile_Trainer extends StatelessWidget {
-  const Profile_Trainer({Key key}) : super(key: key);
+  const Profile_Trainer({
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +55,7 @@ class Profile_Trainer extends StatelessWidget {
                 indent: 27,
                 endIndent: 27),
             Expanded(
-              child: ScrollTrainer(),
+              child: ScrollTrainer(avatarNumber: Trainer.avatarNumber),
             )
           ],
         ),
@@ -76,7 +80,9 @@ class Trainer_Search_Info extends StatelessWidget {
             height: 100,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('asset/images/background/mans.jpg'),
+                  image: AssetImage('asset/images/trainerAvatar/' +
+                      Trainer.avatarNumber.toString() +
+                      '.jpg'),
                   fit: BoxFit.fill,
                 ),
                 border: Border.all(width: 2, color: MainColors.kLight),
@@ -90,7 +96,7 @@ class Trainer_Search_Info extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Micheal  Jordan",
+                  Trainer.name,
                   style: const TextStyle(
                       color: const Color(0xffffffff),
                       fontWeight: FontWeight.w700,
@@ -101,7 +107,7 @@ class Trainer_Search_Info extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 5, bottom: 5),
                   child: Text(
-                    "Body Weight, Strengthen",
+                    Trainer.expertise,
                     style: const TextStyle(
                         color: MainColors.kSoftLight,
                         fontWeight: FontWeight.w700,
@@ -118,7 +124,7 @@ class Trainer_Search_Info extends StatelessWidget {
                     Icon(Icons.star, color: MainColors.kMain, size: 15),
                     Icon(Icons.star, color: MainColors.kMain, size: 15),
                     Text(
-                      "(6923)",
+                      "(" + Trainer.commentCount.toString() + ")",
                       style: TextStyle(fontSize: 12, color: MainColors.kMain),
                     )
                   ],
@@ -126,7 +132,7 @@ class Trainer_Search_Info extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 5),
                   child: Text(
-                    "\$29/month",
+                    "\$" + Trainer.price.toString() + "/month",
                     style: const TextStyle(
                         color: Colors.yellow,
                         fontWeight: FontWeight.w700,

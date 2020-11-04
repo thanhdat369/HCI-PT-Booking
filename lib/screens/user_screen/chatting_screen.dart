@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/constants.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/user_screen_back_button.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
+import 'package:hci_booking_pt/trainer.dart';
+import 'package:intl/intl.dart';
 
 class ChatScreen extends StatefulWidget {
   @override
@@ -10,6 +12,26 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final messageTextController = TextEditingController();
+  List<MessageBubble> bubbles = [
+    MessageBubble(
+      sender: 'Not me',
+      text: "Hello. Nice to meet u",
+      isMe: true,
+      date: "Monday, 10:25 A.M",
+    ),
+    MessageBubble(
+        sender: 'Hieu dep trai',
+        text: 'Nice too meet u too. Do u like your job?',
+        isMe: false,
+        date: "Monday, 10:27 A.M"),
+    MessageBubble(
+      sender: 'Not me',
+      text:
+          "Not really. It is pretty easy. The computer does all the calculations for you.",
+      isMe: true,
+      date: "Monday, 10:25 A.M",
+    )
+  ];
 
   String messageText;
   @override
@@ -19,13 +41,15 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController textEditingController = new TextEditingController();
+
     return UserScreenBackButton(
-      title: "MICHAEL JORDAN",
+      title: Trainer.name,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          MessagesStream(),
+          MessagesStream(bubbles: bubbles),
           Container(
               child: SingleChildScrollView(
                   child: Padding(
@@ -36,6 +60,7 @@ class _ChatScreenState extends State<ChatScreen> {
               children: <Widget>[
                 Expanded(
                   child: TextField(
+                    controller: textEditingController,
                     style: TextStyle(color: MainColors.kLight),
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
@@ -54,7 +79,18 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                 ),
                 InkWell(
-                    onTap: () => () {},
+                    onTap: () {
+                      setState(() {
+                        if (textEditingController.text.isNotEmpty)
+                          bubbles.add(MessageBubble(
+                            sender: 'me',
+                            text: textEditingController.text,
+                            isMe: true,
+                            date: DateFormat("EEEEE, hh:mm a")
+                                .format(DateTime.now()),
+                          ));
+                      });
+                    },
                     child: Padding(
                       padding: EdgeInsets.only(left: 10),
                       child: Icon(Icons.arrow_forward,
@@ -70,37 +106,15 @@ class _ChatScreenState extends State<ChatScreen> {
 }
 
 class MessagesStream extends StatelessWidget {
+  final List<MessageBubble> bubbles;
+
+  const MessagesStream({Key key, this.bubbles}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    List<MessageBubble> bubbles = [
-      MessageBubble(
-        sender: 'Not me',
-        text:
-            "Not really. It is pretty easy. The computer does all the calculations for you.",
-        isMe: true,
-        date: "Monday, 10:25 A.M",
-      ),
-      MessageBubble(
-          sender: 'Hieu dep trai',
-          text: 'Nice too meet u too. Do u like your job?',
-          isMe: false,
-          date: "Monday, 10:27 A.M"),
-      MessageBubble(
-        sender: 'Not me',
-        text: "Hello. Nice to meet u",
-        isMe: true,
-        date: "Monday, 10:25 A.M",
-      ),
-    ];
-
-    bubbles.forEach((bubble) {
-      print(bubble);
-    });
-
     return Expanded(
       child: ListView(
         reverse: true,
-        children: bubbles,
+        children: bubbles.reversed.toList(),
         padding: EdgeInsets.only(bottom: 10),
       ),
     );

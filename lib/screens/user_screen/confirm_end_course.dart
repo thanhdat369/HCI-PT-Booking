@@ -53,6 +53,7 @@ class ConfirmEndCourse {
                       child: Text(
                         "Do you really want to end this course?",
                         textAlign: TextAlign.left,
+                        style: TextStyle(fontSize: 15),
                       )),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,

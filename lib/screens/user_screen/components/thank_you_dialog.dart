@@ -5,8 +5,13 @@ import 'package:hci_booking_pt/theme/colors.dart';
 
 import '../user_screen.dart';
 
-class ThankYou {
+class TextDialog {
+  final String text;
   var _timer;
+
+  final Widget _widget;
+
+  TextDialog(this.text, this._widget);
   void showThankYouDialog(BuildContext context) {
     var dialog = Dialog(
       backgroundColor: MainColors.kSoftDark,
@@ -16,7 +21,7 @@ class ThankYou {
           width: context.size.width * 0.4,
           height: 50,
           child: Center(
-              child: Text("Thank You",
+              child: Text(text,
                   style: TextStyle(
                       color: MainColors.kLight,
                       fontSize: 20,
@@ -30,11 +35,7 @@ class ThankYou {
         _timer = Timer(Duration(seconds: 2), () {
           Navigator.of(context).pop();
           Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => UserScreen(
-                        isRented: false,
-                      )));
+              context, MaterialPageRoute(builder: (context) => _widget));
         });
         return dialog;
       },
