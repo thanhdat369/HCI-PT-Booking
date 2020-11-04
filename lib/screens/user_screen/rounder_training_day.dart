@@ -21,40 +21,55 @@ class RoundedTrainingDay extends StatelessWidget {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => ExerciseScreen()));
       },
-      child: Container(
-        padding: EdgeInsets.all(5),
-        margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-            color: is_finish ? MainColors.kDark : MainColors.kMain,
-            border: Border.all(width: 3, color: MainColors.kMain)),
-        width: size.width * 0.85,
-        height: size.height * 0.1,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(bottom: 3),
-              child: Text(
-                this.title,
-                style: TextStyle(fontSize: 17),
+      child: Opacity(
+        opacity: is_finish ? 0.6 : 1,
+        child: Container(
+          padding: EdgeInsets.all(5),
+          margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              color: MainColors.kDark,
+              border: Border.all(width: 3, color: MainColors.kMain)),
+          width: size.width * 0.85,
+          height: size.height * 0.1,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(bottom: 3),
+                child: Text(
+                  this.title,
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: MainColors.kLight),
+                ),
               ),
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  "$num_of_excercise exercises",
-                  style: TextStyle(fontSize: 15),
-                ),
-                Text(
-                  is_finish ? "Finished" : "",
-                  style: TextStyle(fontSize: 18, color: Colors.green),
-                ),
-              ],
-            )
-          ],
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    "$num_of_excercise exercises",
+                    style: TextStyle(fontSize: 14, color: MainColors.kLight),
+                  ),
+                  Row(children: [
+                    is_finish
+                        ? Icon(
+                            Icons.check,
+                            color: Colors.green,
+                          )
+                        : Icon(null),
+                    Text(
+                      is_finish ? "Finished" : "Start",
+                      style: TextStyle(fontSize: 21, color: MainColors.kLight),
+                    ),
+                  ]),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
