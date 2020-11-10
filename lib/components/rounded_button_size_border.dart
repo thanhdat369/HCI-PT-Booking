@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
-class RoundedButtonSize extends StatelessWidget {
+class RoundedButtonSizeBorder extends StatelessWidget {
   final String text;
   final Function press;
   final Color color, textColor;
@@ -10,7 +10,8 @@ class RoundedButtonSize extends StatelessWidget {
   final double fontsize;
   final bool isAlignLeft;
   final FontWeight fontWeight;
-  const RoundedButtonSize(
+  final Color borderColor;
+  const RoundedButtonSizeBorder(
       {Key key,
       this.text,
       this.press,
@@ -20,7 +21,8 @@ class RoundedButtonSize extends StatelessWidget {
       this.height,
       this.fontsize = 15,
       this.isAlignLeft = false,
-      this.fontWeight = FontWeight.w700})
+      this.fontWeight = FontWeight.w700,
+      this.borderColor = MainColors.kMain})
       : super(key: key);
 
   @override
@@ -31,6 +33,7 @@ class RoundedButtonSize extends StatelessWidget {
       child: Container(
         alignment: isAlignLeft ? Alignment.centerLeft : Alignment.center,
         decoration: BoxDecoration(
+          border: Border.all(color: borderColor),
           borderRadius: BorderRadius.all(Radius.circular(5)),
           color: this.color,
         ),

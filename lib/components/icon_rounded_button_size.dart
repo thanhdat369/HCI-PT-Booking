@@ -8,6 +8,7 @@ class IconRoundedButtonSize extends StatelessWidget {
   final double width;
   final double height;
   final IconData icon;
+  final double fontsize;
   const IconRoundedButtonSize({
     Key key,
     this.text,
@@ -17,6 +18,7 @@ class IconRoundedButtonSize extends StatelessWidget {
     this.width,
     this.height,
     this.icon,
+    this.fontsize = 15,
   }) : super(key: key);
 
   @override
@@ -41,7 +43,7 @@ class IconRoundedButtonSize extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: textColor,
-                  fontSize: 15,
+                  fontSize: fontsize,
                   fontWeight: FontWeight.w700,
                   fontFamily: "Product Sans"),
             ),

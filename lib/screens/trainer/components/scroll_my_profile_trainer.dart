@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:hci_booking_pt/screens/user_screen/profile_trainer.dart';
+import 'package:hci_booking_pt/screens/trainer/my_profile_trainer.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
-import '../../../trainer.dart';
-
-class ScrollTrainer extends StatelessWidget {
+class ScrollMyProfileTrainer extends StatelessWidget {
   final int avatarNumber;
-  const ScrollTrainer({Key key, this.avatarNumber}) : super(key: key);
+  const ScrollMyProfileTrainer({Key key, this.avatarNumber}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    FocusNode _focusNode = new FocusNode();
+    TextEditingController _textEditingController = new TextEditingController();
     Size size = MediaQuery.of(context).size;
     return ListView(scrollDirection: Axis.vertical, children: <Widget>[
       MyIconTrainer(
@@ -25,19 +25,30 @@ class ScrollTrainer extends StatelessWidget {
         title: "112-72-97",
       ),
       Container(
-        margin: EdgeInsets.only(top: 10, left: 25, right: 25),
+        width: size.width * 0.85,
+        margin: EdgeInsets.only(top: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Bio",
-              style: const TextStyle(
-                  color: MainColors.kSoftLight,
-                  fontWeight: FontWeight.w700,
-                  fontFamily: "Noto Sans",
-                  fontStyle: FontStyle.normal,
-                  fontSize: 18),
-              textAlign: TextAlign.start,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Bio",
+                  style: const TextStyle(
+                      color: MainColors.kSoftLight,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: "Noto Sans",
+                      fontStyle: FontStyle.normal,
+                      fontSize: 18),
+                  textAlign: TextAlign.start,
+                ),
+                Icon(
+                  Icons.edit,
+                  color: MainColors.kLight,
+                  size: 15,
+                ),
+              ],
             ),
             Text(
               "Getting fit and healthy not have to be difficult, but often times it is. My passion is to help people vhange lives in the somplest and most realistic way possiple. I belive everyone deserves the right to good health and to be happy with themselves inside and out.",

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MainColors  {
+class MainColors {
   static const Color kMain = Color(0xFFFE2851);
   static const Color kLight = Color(0xFFFFFFFF);
   static const Color kSoftLight = Color(0xFFc3cbce);

@@ -118,14 +118,15 @@ class Trainer_Search_Info extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Icon(Icons.star, color: MainColors.kMain, size: 15),
-                    Icon(Icons.star, color: MainColors.kMain, size: 15),
-                    Icon(Icons.star, color: MainColors.kMain, size: 15),
-                    Icon(Icons.star, color: MainColors.kMain, size: 15),
-                    Icon(Icons.star, color: MainColors.kMain, size: 15),
+                    Icon(Icons.star, color: Colors.yellow, size: 15),
+                    Icon(Icons.star, color: Colors.yellow, size: 15),
+                    Icon(Icons.star, color: Colors.yellow, size: 15),
+                    Icon(Icons.star, color: Colors.yellow, size: 15),
+                    Icon(Icons.star, color: Colors.yellow, size: 15),
                     Text(
                       "(" + Trainer.commentCount.toString() + ")",
-                      style: TextStyle(fontSize: 12, color: MainColors.kMain),
+                      style:
+                          TextStyle(fontSize: 12, color: MainColors.kSoftLight),
                     )
                   ],
                 ),

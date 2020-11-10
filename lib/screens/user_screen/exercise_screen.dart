@@ -47,7 +47,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> {
                     imagePath:
                         "asset/images/exercises/Single Leg Extension.png"),
                 ItemExercise(
-                    title: "Single Leg Extension",
+                    title: "Single Leg Deadlift",
                     imagePath: "asset/images/exercises/Stiff Leg Deadlift.png"),
               ],
             ),
