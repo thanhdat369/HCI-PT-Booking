@@ -4,11 +4,13 @@ import 'package:hci_booking_pt/screens/user_screen/review_course.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 class ConfirmAcceptClient {
-  void showAlertDialog(BuildContext context, Function action) {
+  void showAlertDialog(BuildContext context, Function action, Function later) {
     Widget laterButton = FlatButton(
       child: Text("Later", style: TextStyle(color: MainColors.kLight)),
       color: MainColors.kDark,
       onPressed: () {
+        later();
+
         Navigator.of(context, rootNavigator: true).pop();
       },
     );

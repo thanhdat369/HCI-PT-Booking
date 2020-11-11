@@ -24,9 +24,9 @@ class UserBoxNewBookingInfo extends StatelessWidget {
 
   const UserBoxNewBookingInfo(
       {Key key,
-      this.name = "Trieu Minh Huy",
+      this.name = "Nguyen Thi Ngan",
       this.time = "Tue 8:45 - 10:15",
-      this.avatarNumber = 1,
+      this.avatarNumber = 5,
       this.startDate = "19 November, 2020",
       this.dueDate = "18 December, 2020",
       this.press})
@@ -113,7 +113,7 @@ class UserBoxNewBookingInfo extends StatelessWidget {
                                           SettingCourseDetailScreen(
                                             isComeFromAccept: true,
                                           )));
-                            });
+                            }, press);
                           }),
                     ],
                   )

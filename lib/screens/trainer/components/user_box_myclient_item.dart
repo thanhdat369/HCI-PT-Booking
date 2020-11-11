@@ -57,15 +57,35 @@ class UserBoxMyClientItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
-                    name,
-                    style: const TextStyle(
-                        color: const Color(0xffffffff),
-                        fontWeight: FontWeight.w700,
-                        fontFamily: "Noto Sans",
-                        fontStyle: FontStyle.normal,
-                        fontSize: 18),
-                  ),
+                  isSetted
+                      ? Text(
+                          name,
+                          style: const TextStyle(
+                              color: const Color(0xffffffff),
+                              fontWeight: FontWeight.w700,
+                              fontFamily: "Noto Sans",
+                              fontStyle: FontStyle.normal,
+                              fontSize: 18),
+                        )
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(name,
+                                style: const TextStyle(
+                                    color: const Color(0xffffffff),
+                                    fontWeight: FontWeight.w700,
+                                    fontFamily: "Noto Sans",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 18)),
+                            Text("Not Set",
+                                style: const TextStyle(
+                                    color: MainColors.kMain,
+                                    fontWeight: FontWeight.w700,
+                                    fontFamily: "Noto Sans",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 18))
+                          ],
+                        ),
                   Container(
                     child: Text(time,
                         style: const TextStyle(

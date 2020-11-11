@@ -44,14 +44,14 @@ class MyClientScreen extends StatelessWidget {
 Widget myClientListView = ListView(
   physics: PageScrollPhysics(),
   children: [
-    UserBoxMyClientItem(),
-    const Divider(
-        color: Colors.white, height: 10, thickness: 1, indent: 0, endIndent: 0),
     UserBoxMyClientItem(
         isSetted: false,
         name: "Le Thanh Dat",
         avatarNumber: 2,
         time: "Tue 10:30 - 12:00"),
+    const Divider(
+        color: Colors.white, height: 10, thickness: 1, indent: 0, endIndent: 0),
+    UserBoxMyClientItem(),
     const Divider(
         color: Colors.white, height: 10, thickness: 1, indent: 0, endIndent: 0),
     UserBoxMyClientItem(

@@ -11,6 +11,7 @@ class RoundedButtonSizeBorder extends StatelessWidget {
   final bool isAlignLeft;
   final FontWeight fontWeight;
   final Color borderColor;
+  final String secondText;
   const RoundedButtonSizeBorder(
       {Key key,
       this.text,
@@ -22,7 +23,8 @@ class RoundedButtonSizeBorder extends StatelessWidget {
       this.fontsize = 15,
       this.isAlignLeft = false,
       this.fontWeight = FontWeight.w700,
-      this.borderColor = MainColors.kMain})
+      this.borderColor = MainColors.kMain,
+      this.secondText = ""})
       : super(key: key);
 
   @override
@@ -31,25 +33,48 @@ class RoundedButtonSizeBorder extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: Container(
-        alignment: isAlignLeft ? Alignment.centerLeft : Alignment.center,
-        decoration: BoxDecoration(
-          border: Border.all(color: borderColor),
-          borderRadius: BorderRadius.all(Radius.circular(5)),
-          color: this.color,
-        ),
-        margin: EdgeInsets.symmetric(vertical: 5),
-        width: width,
-        height: height,
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              color: textColor,
-              fontSize: fontsize,
-              fontWeight: fontWeight,
-              fontFamily: "Product Sans"),
-        ),
-      ),
+          alignment: isAlignLeft ? Alignment.centerLeft : Alignment.center,
+          decoration: BoxDecoration(
+            border: Border.all(color: borderColor),
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+            color: this.color,
+          ),
+          margin: EdgeInsets.symmetric(vertical: 5),
+          width: width,
+          height: height,
+          child: secondText == ""
+              ? Text(
+                  text,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: textColor,
+                      fontSize: fontsize,
+                      fontWeight: fontWeight,
+                      fontFamily: "Product Sans"),
+                )
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      text,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: textColor,
+                          fontSize: fontsize,
+                          fontWeight: fontWeight,
+                          fontFamily: "Product Sans"),
+                    ),
+                    Text(
+                      secondText,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: textColor,
+                          fontSize: fontsize,
+                          fontWeight: fontWeight,
+                          fontFamily: "Product Sans"),
+                    )
+                  ],
+                )),
     );
   }
 }
