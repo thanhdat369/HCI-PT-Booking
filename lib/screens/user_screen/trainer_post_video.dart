@@ -3,23 +3,25 @@ import 'dart:io';
 import 'package:chewie/chewie.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hci_booking_pt/components/rounded_button.dart';
+import 'package:hci_booking_pt/components/rounded_button_size.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/user_screen_back_button.dart';
+import 'package:hci_booking_pt/screens/user_screen/user_detail_exercise_video.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:video_player/video_player.dart';
 
-class TrainerPostVideoScreen extends StatefulWidget {
-  TrainerPostVideoScreen({this.title = 'Chewie Demo'});
+import 'components/thank_you_dialog.dart';
 
-  final String title;
-
+class UserPostVideoScreen extends StatefulWidget {
+  UserPostVideoScreen();
   @override
   State<StatefulWidget> createState() {
-    return _TrainerPostVideoScreenState();
+    return _UserPostVideoScreenState();
   }
 }
 
-class _TrainerPostVideoScreenState extends State<TrainerPostVideoScreen> {
+class _UserPostVideoScreenState extends State<UserPostVideoScreen> {
   VideoPlayerController _videoController;
   ChewieController _chewieController;
 
@@ -31,27 +33,6 @@ class _TrainerPostVideoScreenState extends State<TrainerPostVideoScreen> {
     super.initState();
     _videoController =
         VideoPlayerController.asset('asset/videos/exercises/squat.mp4');
-    // VideoPlayerController.network("https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4");
-    // _chewieController = ChewieController(
-    //   videoPlayerController: _videoController,
-    //   aspectRatio: 16 / 9,
-    //   autoPlay: true,
-    //   looping: true,
-    //   // Try playing around with some of these other options:
-
-    //   showControls: true,
-    //   materialProgressColors: ChewieProgressColors(
-    //     playedColor: MainColors.kMain,
-    //     handleColor: MainColors.kMain,
-    //     backgroundColor: MainColors.kMain,
-    //     bufferedColor: MainColors.kSoftDark,
-    //   ),
-
-    //   placeholder: Container(
-    //     color: MainColors.kSoftDark,
-    //   ),
-    //   autoInitialize: true,
-    // );
   }
 
   @override
@@ -63,10 +44,13 @@ class _TrainerPostVideoScreenState extends State<TrainerPostVideoScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return UserScreenBackButton(
       title: "Post video",
       child: Container(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (this._fileVideo != null)
               this._videoController.value.initialized
@@ -76,15 +60,28 @@ class _TrainerPostVideoScreenState extends State<TrainerPostVideoScreen> {
                   : Container()
             else
               Text(
-                "Click on Pick Video to select video",
+                "Choosing your video",
                 style: TextStyle(fontSize: 18.0),
               ),
-            RaisedButton(
-              onPressed: () {
+            RoundedButtonSize(
+              width: size.width * 0.6,
+              height: size.height * 0.07,
+              press: () {
                 _pickVideo();
               },
-              child: Text("Pick your video"),
-            )
+              text: "Pick your video",
+            ),
+            if (_fileVideo != null)
+              RoundedButtonSize(
+                width: size.width * 0.6,
+                height: size.height * 0.07,
+                press: () {
+                  if (this._fileVideo != null) {
+                    Navigator.of(context).pop();
+                  } else {}
+                },
+                text: "Finish",
+              )
           ],
         ),
       ),

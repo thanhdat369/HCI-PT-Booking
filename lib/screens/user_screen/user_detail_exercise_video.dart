@@ -3,6 +3,7 @@ import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/rounded_button_size.dart';
 import 'package:hci_booking_pt/controller/video_controller.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/user_screen_back_button.dart';
+import 'package:hci_booking_pt/screens/user_screen/trainer_post_video.dart';
 
 class UserDetailExerciseVideoScreen extends StatefulWidget {
   UserDetailExerciseVideoScreen({Key key}) : super(key: key);
@@ -36,7 +37,13 @@ class _UserDetailExerciseVideoScreenState
               "Trainer point : _ _",
               style: TextStyle(fontSize: 20),
             ),
-            Center(child: RoundedButton(text: "Post your video")),
+            Center(
+                child: RoundedButton(
+                    text: "Post your video",
+                    press: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => UserPostVideoScreen())))),
             Center(
                 child: RoundedButton(
                     press: () {
