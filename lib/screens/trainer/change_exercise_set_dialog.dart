@@ -6,6 +6,9 @@ import 'package:hci_booking_pt/theme/colors.dart';
 class ChangeExerciseSetDialog {
   void showAlertDialog(
       BuildContext context, Function(String) action, String set) {
+    TextEditingController setEditingController = TextEditingController();
+    TextEditingController repEditingController = TextEditingController();
+    TextEditingController weightEditingController = TextEditingController();
     Widget laterButton = FlatButton(
       child: Text("Later", style: TextStyle(color: MainColors.kLight)),
       color: MainColors.kDark,
@@ -18,8 +21,16 @@ class ChangeExerciseSetDialog {
       color: MainColors.kMain,
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pop();
+        var setStr =
+            setEditingController.text.isEmpty ? "0" : setEditingController.text;
+        var repStr =
+            repEditingController.text.isEmpty ? "0" : repEditingController.text;
+        var weightStr = weightEditingController.text.isEmpty
+            ? "0"
+            : weightEditingController.text;
+        var a = "$setStr x $repStr | $weightStr kg";
 
-        set = "test String";
+        set = a;
         action(set);
       },
     );
@@ -45,7 +56,73 @@ class ChangeExerciseSetDialog {
                 children: [
                   Padding(
                       padding: EdgeInsets.symmetric(vertical: 10),
-                      child: Container()
+                      child: Container(
+                        height: 30,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                                width: 70,
+                                height: 20,
+                                decoration: BoxDecoration(
+                                    border: Border(
+                                        bottom: BorderSide(
+                                            color: MainColors.kLight,
+                                            width: 1))),
+                                child: TextField(
+                                  controller: setEditingController,
+                                  style: TextStyle(color: MainColors.kLight),
+                                  cursorColor: MainColors.kMain,
+                                  decoration: InputDecoration(
+                                    fillColor: MainColors.kLight,
+                                    hintText: "Set",
+                                    hintStyle:
+                                        TextStyle(color: MainColors.kSoftLight),
+                                    border: InputBorder.none,
+                                  ),
+                                )),
+                            Container(
+                                width: 70,
+                                height: 20,
+                                decoration: BoxDecoration(
+                                    border: Border(
+                                        bottom: BorderSide(
+                                            color: MainColors.kLight,
+                                            width: 1))),
+                                child: TextField(
+                                  controller: repEditingController,
+                                  style: TextStyle(color: MainColors.kLight),
+                                  cursorColor: MainColors.kMain,
+                                  decoration: InputDecoration(
+                                    fillColor: MainColors.kLight,
+                                    hintText: "Rep",
+                                    hintStyle:
+                                        TextStyle(color: MainColors.kSoftLight),
+                                    border: InputBorder.none,
+                                  ),
+                                )),
+                            Container(
+                                width: 100,
+                                height: 20,
+                                decoration: BoxDecoration(
+                                    border: Border(
+                                        bottom: BorderSide(
+                                            color: MainColors.kLight,
+                                            width: 1))),
+                                child: TextField(
+                                  controller: weightEditingController,
+                                  style: TextStyle(color: MainColors.kLight),
+                                  cursorColor: MainColors.kMain,
+                                  decoration: InputDecoration(
+                                    fillColor: MainColors.kLight,
+                                    hintText: "Weight (kg)",
+                                    hintStyle:
+                                        TextStyle(color: MainColors.kSoftLight),
+                                  ),
+                                )),
+                          ],
+                        ),
+                      )
 
                       // Text(
                       //   set,
