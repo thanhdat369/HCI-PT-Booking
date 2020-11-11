@@ -6,9 +6,12 @@ import 'package:hci_booking_pt/theme/colors.dart';
 import 'package:video_player/video_player.dart';
 
 class ChewieVideoPlayer extends StatefulWidget {
-  ChewieVideoPlayer({this.title = 'Chewie Demo'});
+  ChewieVideoPlayer(
+      {this.title = 'Chewie Demo',
+      this.asset = 'asset/videos/exercises/squat.mp4'});
 
   final String title;
+  final String asset;
 
   @override
   State<StatefulWidget> createState() {
@@ -24,8 +27,7 @@ class _ChewieVideoPlayerState extends State<ChewieVideoPlayer> {
   @override
   void initState() {
     super.initState();
-    _videoController =
-        VideoPlayerController.asset('asset/videos/exercises/squat.mp4');
+    _videoController = VideoPlayerController.asset(widget.asset);
     // VideoPlayerController.network("https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4");
     _chewieController = ChewieController(
       videoPlayerController: _videoController,
@@ -36,14 +38,12 @@ class _ChewieVideoPlayerState extends State<ChewieVideoPlayer> {
 
       showControls: true,
       materialProgressColors: ChewieProgressColors(
-        
         playedColor: MainColors.kMain,
         handleColor: MainColors.kMain,
-        backgroundColor:MainColors.kMain,
+        backgroundColor: MainColors.kMain,
         bufferedColor: MainColors.kSoftDark,
-
       ),
-      
+
       placeholder: Container(
         color: MainColors.kSoftDark,
       ),

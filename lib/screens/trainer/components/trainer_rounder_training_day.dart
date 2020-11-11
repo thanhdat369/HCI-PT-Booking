@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hci_booking_pt/screens/user_screen/exercise_screen.dart';
+import 'package:hci_booking_pt/screens/trainer/trainer_exercise_screen.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
 
 class TrainerRoundedTrainingDay extends StatelessWidget {
@@ -18,8 +18,8 @@ class TrainerRoundedTrainingDay extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return InkWell(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ExerciseScreen()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => TrainerExerciseScreen()));
       },
       child: Opacity(
         opacity: is_finish ? 0.6 : 1,

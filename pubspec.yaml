@@ -58,6 +58,7 @@ flutter:
     - asset/images/logo/
     - asset/images/user_screen/
     - asset/videos/exercises/squat.mp4
+    - asset/videos/exercises/my.mp4
     - asset/images/exercises/
   #   - images/a_dot_ham.jpeg
 
