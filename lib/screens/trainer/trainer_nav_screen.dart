@@ -27,10 +27,16 @@ class TrainerScreen extends StatefulWidget {
 }
 
 class _TrainerScreenState extends State<TrainerScreen> {
+  int _currentindex;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    this._currentindex = this.widget.currentindex;
+  }
+
   @override
   Widget build(BuildContext context) {
-    int _currentindex = widget.currentindex;
-
     var _tabs = [
       TrainerScreenItemDTO("HOMEPAGE", TrainerHome()),
       TrainerScreenItemDTO("MY CLIENTS", MyClientScreen()),

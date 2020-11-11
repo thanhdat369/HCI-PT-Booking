@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/square_image.dart';
+import 'package:hci_booking_pt/screens/Welcome/login.dart';
 import 'package:hci_booking_pt/screens/trainer/components/scroll_my_profile_trainer.dart';
 import 'package:hci_booking_pt/screens/user_screen/booking_calendar.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/scroll_profile_trainer.dart';
@@ -24,7 +25,13 @@ class MyProfileTrainer extends StatelessWidget {
           const Divider(color: Colors.white, height: 20, thickness: 2),
           Expanded(
             child: ScrollMyProfileTrainer(avatarNumber: Trainer.avatarNumber),
-          )
+          ),
+          RoundedButton(
+              text: "LOGOUT",
+              press: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()));
+              })
         ],
       ),
     );

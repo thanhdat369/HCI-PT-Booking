@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/rounded_button_size.dart';
 import 'package:hci_booking_pt/components/rounded_button_size_border.dart';
+import 'package:hci_booking_pt/screens/trainer/change_exercise_set_dialog.dart';
 import 'package:hci_booking_pt/screens/trainer/client_detail_screen.dart';
 import 'package:hci_booking_pt/screens/trainer/components/client.dart';
 import 'package:hci_booking_pt/screens/trainer/components/dropdown_chosing_week.dart';
@@ -44,15 +45,27 @@ class _SettingCourseDetailScreenState extends State<SettingCourseDetailScreen> {
       List<Widget> exercises = new List<Widget>();
       for (var item in fullSelected[index]) {
         exercises.add(RoundedButtonSizeBorder(
-          borderColor: MainColors.kSoftLight,
-          color: MainColors.kSoftDark,
-          text: "    " + item["name"],
-          width: size.width * 0.9,
-          height: 30,
-          fontsize: 13,
-          isAlignLeft: true,
-          fontWeight: FontWeight.normal,
-        ));
+            borderColor: MainColors.kSoftLight,
+            color: MainColors.kSoftDark,
+            text: "    " + item["name"],
+            secondText: item["set"] == null
+                ? "3 x 8-10 | 10kg    "
+                : item["set"] + "    ",
+            width: size.width * 0.9,
+            height: 30,
+            fontsize: 13,
+            isAlignLeft: true,
+            fontWeight: FontWeight.normal,
+            press: () {
+              ChangeExerciseSetDialog().showAlertDialog(
+                  context,
+                  (String edited) => {
+                        setState(() {
+                          item["set"] = edited;
+                        })
+                      },
+                  " " + item["set"]);
+            }));
       }
       return exercises;
     }

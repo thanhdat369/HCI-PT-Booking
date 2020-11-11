@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hci_booking_pt/components/rounded_button.dart';
 import 'package:hci_booking_pt/components/rounded_input_search.dart';
 import 'package:hci_booking_pt/screens/trainer/exercise_list_constaint.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/user_screen_back_button.dart';
@@ -45,7 +46,7 @@ class _ExerciseListScreenState extends State<ExerciseListScreen> {
           Checkbox(
             onChanged: (bool isCheck) {
               setState(() {});
-
+              item.putIfAbsent("set", () => "3 x 8-10 | 10kg");
               if (isCheck)
                 widget.selected.add(item);
               else {
@@ -100,6 +101,14 @@ class _ExerciseListScreenState extends State<ExerciseListScreen> {
                   itemBuilder: (BuildContext ctxt, int index) {
                     return listExercise()[index];
                   }),
+            ),
+            Center(
+              child: RoundedButton(
+                text: "Confirm",
+                press: () {
+                  Navigator.pop(context);
+                },
+              ),
             )
             // ),
           ],
