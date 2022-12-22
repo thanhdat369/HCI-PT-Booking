@@ -23,7 +23,6 @@ class IconRoundedButtonSize extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: press,
       child: Container(

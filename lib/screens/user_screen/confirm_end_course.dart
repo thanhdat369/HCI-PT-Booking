@@ -5,16 +5,16 @@ import 'package:hci_booking_pt/theme/colors.dart';
 
 class ConfirmEndCourse {
   void showAlertDialog(BuildContext context) {
-    Widget noButton = FlatButton(
+    Widget noButton = TextButton(
       child: Text("No", style: TextStyle(color: MainColors.kLight)),
-      color: MainColors.kMain,
+      // color: MainColors.kMain,
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pop();
       },
     );
-    Widget yesButton = FlatButton(
+    Widget yesButton = TextButton(
       child: Text("Yes", style: TextStyle(color: MainColors.kLight)),
-      color: MainColors.kDark,
+      // color: MainColors.kDark,
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pop();
         ReviewCourse().showAlertDialog(context);

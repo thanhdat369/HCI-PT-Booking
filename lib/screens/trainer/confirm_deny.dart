@@ -5,16 +5,14 @@ import 'package:hci_booking_pt/theme/colors.dart';
 
 class ConfirmDeny {
   void showAlertDialog(BuildContext context, Function action) {
-    Widget noButton = FlatButton(
+    Widget noButton = TextButton(
       child: Text("No", style: TextStyle(color: MainColors.kLight)),
-      color: MainColors.kMain,
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pop();
       },
     );
-    Widget yesButton = FlatButton(
+    Widget yesButton = TextButton(
       child: Text("Yes", style: TextStyle(color: MainColors.kLight)),
-      color: MainColors.kDark,
       onPressed: () {
         action();
         Navigator.of(context, rootNavigator: true).pop();

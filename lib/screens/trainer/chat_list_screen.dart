@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hci_booking_pt/screens/trainer/components/user_box_newBook_info.dart';
 import 'package:hci_booking_pt/screens/trainer/trainer_chatting_screen.dart';
 import 'package:hci_booking_pt/screens/user_screen/components/user_screen_back_button.dart';
 import 'package:hci_booking_pt/theme/colors.dart';
-import 'package:hci_booking_pt/trainer.dart';
 
 class ChatListScreen extends StatefulWidget {
   @override
@@ -105,13 +103,6 @@ class _ChatListScreenState extends State<ChatListScreen> {
   }
 }
 
-// Widget bookingListView = ();
-
-// Widget chatItem(
-//     int avatarNumber, String name, String lastMessage, String time) {
-//   return
-// }
-
 class ChatItem extends StatelessWidget {
   final String name;
 
@@ -130,7 +121,6 @@ class ChatItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,

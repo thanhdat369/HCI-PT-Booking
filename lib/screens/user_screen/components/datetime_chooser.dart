@@ -42,11 +42,11 @@ class _DatePickerDemoState extends State<DatePickerDemo> {
         children: <Widget>[
           Text("Start date:",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
-          RaisedButton(
-            color: MainColors.kSoftDark,
-            shape: RoundedRectangleBorder(
-                // borderRadius: BorderRadius.circular(18.0),
-                side: BorderSide(color: MainColors.kMain)),
+          ElevatedButton(
+            // color: MainColors.kSoftDark,
+            // shape: RoundedRectangleBorder(
+            //     // borderRadius: BorderRadius.circular(18.0),
+            //     side: BorderSide(color: MainColors.kMain)),
             onPressed: () => _selectDate(context),
             child: Text(
               "${formatter.format(selectedDate)}",

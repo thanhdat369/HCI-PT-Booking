@@ -130,7 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void _clear_text() {
+  void clearText() {
     userController.clear();
     passwordController.clear();
   }
@@ -139,13 +139,13 @@ class _LoginScreenState extends State<LoginScreen> {
     setState(() {
       if (userController.text == "user" &&
           passwordController.text == "123456") {
-        _clear_text();
+        clearText();
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => UserScreen()));
       }
       if (userController.text == "trainer" &&
           passwordController.text == "123456") {
-        _clear_text();
+        clearText();
         setTrainerInfo();
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => TrainerScreen()));

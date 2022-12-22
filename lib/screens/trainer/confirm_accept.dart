@@ -5,18 +5,16 @@ import 'package:hci_booking_pt/theme/colors.dart';
 
 class ConfirmAcceptClient {
   void showAlertDialog(BuildContext context, Function action, Function later) {
-    Widget laterButton = FlatButton(
+    Widget laterButton = TextButton(
       child: Text("Later", style: TextStyle(color: MainColors.kLight)),
-      color: MainColors.kDark,
       onPressed: () {
         later();
 
         Navigator.of(context, rootNavigator: true).pop();
       },
     );
-    Widget yesButton = FlatButton(
+    Widget yesButton = TextButton(
       child: Text("Set now", style: TextStyle(color: MainColors.kLight)),
-      color: MainColors.kMain,
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pop();
 

@@ -109,8 +109,8 @@ class ItemExercise extends StatelessWidget {
               color: MainColors.kMain,
               width: 100,
               height: 30,
-              child: FlatButton(
-                  padding: EdgeInsets.symmetric(vertical: 2),
+              child: TextButton(
+                  // padding: EdgeInsets.symmetric(vertical: 2),
                   onPressed: () {
                     Navigator.push(
                         context,
