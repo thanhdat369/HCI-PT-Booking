@@ -20,7 +20,7 @@ class RoundedPasswordField extends StatefulWidget {
 }
 
 class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
-  bool hidden_password = true;
+  bool hiddenPassword = true;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -34,7 +34,7 @@ class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
         borderRadius: BorderRadius.all(Radius.circular(4)),
       ),
       child: TextField(
-        obscureText: hidden_password,
+        obscureText: hiddenPassword,
         onChanged: widget.onChanged,
         autofocus: false,
         controller: widget.textEditingController,
@@ -54,7 +54,7 @@ class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
                   icon: Icon(Icons.visibility, color: MainColors.kMain),
                   onPressed: () {
                     setState(() {
-                      hidden_password = !hidden_password;
+                      hiddenPassword = !hiddenPassword;
                     });
                   },
                 )

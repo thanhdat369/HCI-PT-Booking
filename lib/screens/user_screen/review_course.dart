@@ -7,9 +7,9 @@ import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class ReviewCourse {
   void showAlertDialog(BuildContext context) {
-    Widget submitButton = FlatButton(
+    Widget submitButton = TextButton(
       child: Text("SUBMIT", style: TextStyle(color: MainColors.kLight)),
-      color: MainColors.kMain,
+      // color: MainColors.kMain,
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pop();
         TextDialog(

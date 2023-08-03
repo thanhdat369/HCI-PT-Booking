@@ -10,17 +10,17 @@ class YesNoDialog {
 
   YesNoDialog(this.text, this._widget);
   void showAlertDialog(BuildContext context) {
-    Widget yesButton = FlatButton(
+    Widget yesButton = TextButton(
       child: Text("Yes", style: TextStyle(color: MainColors.kLight)),
-      color: MainColors.kMain,
+      // color: MainColors.kMain,
       onPressed: () {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => _widget));
       },
     );
-    Widget noButton = FlatButton(
+    Widget noButton = TextButton(
       child: Text("No", style: TextStyle(color: MainColors.kLight)),
-      color: MainColors.kDark,
+      // color: MainColors.kDark,
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pop();
       },

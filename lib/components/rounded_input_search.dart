@@ -20,7 +20,6 @@ class RoundedInputSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Container(
       alignment: Alignment.center,
       margin: EdgeInsets.symmetric(vertical: 10),

@@ -15,7 +15,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  int group_value = 1;
+  int groupValue = 1;
   bool isCheck = true;
   @override
   Widget build(BuildContext context) {
@@ -56,12 +56,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           new Radio(
-                              groupValue: group_value,
+                              groupValue: groupValue,
                               value: 0,
                               activeColor: MainColors.kMain,
                               onChanged: (int) {
                                 setState(() {
-                                  group_value = int;
+                                  groupValue = int;
                                 });
                               }),
                           new Text(
@@ -69,12 +69,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             style: new TextStyle(fontSize: 16.0),
                           ),
                           new Radio(
-                              groupValue: group_value,
+                              groupValue: groupValue,
                               value: 1,
                               activeColor: MainColors.kMain,
                               onChanged: (int) {
                                 setState(() {
-                                  group_value = int;
+                                  groupValue = int;
                                 });
                               }),
                           new Text(
